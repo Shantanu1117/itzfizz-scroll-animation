@@ -1,0 +1,1228 @@
+/* ==========================================================================
+   ITZFIZZ // McLaren 720S Wind-Tunnel Telemetry Atelier
+   Design System, Kinetic Typography, Aerodynamic Slipstream & Bento HUD
+   ========================================================================== */
+
+:root {
+  --color-bg-dark: #07080c;
+  --color-track-bg: #0b0d14;
+  --color-road: #12151f;
+  --color-trail: #45db7d;
+  --color-trail-glow: rgba(69, 219, 125, 0.42);
+  --color-text-dark: #0f172a;
+  --color-text-light: #f8fafc;
+  --color-accent-papaya: #fa7328;
+  --color-accent-lime: #def54f;
+  --color-accent-cyan: #6ac9ff;
+  --color-accent-slate: #333338;
+
+  --font-display: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --road-height: 192px;
+  --car-height: 158px;
+  --card-radius: 14px;
+  --card-shadow: 0 18px 40px -10px rgba(0, 0, 0, 0.65), 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   Reset & Base Foundation
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+  overflow-x: clip;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: clip;
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+  min-height: 100vh;
+}
+
+/* Accessibility Skip Link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: var(--color-accent-papaya);
+  color: #111111;
+  padding: 0.75rem 1.25rem;
+  font-weight: 700;
+  border-radius: 6px;
+  z-index: 9999;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   Editorial Wind-Tunnel Instrument Bar (Navbar)
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(7, 8, 12, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header-progress-rail {
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.header-progress-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-trail), var(--color-accent-lime), var(--color-accent-papaya));
+  box-shadow: 0 0 12px var(--color-accent-papaya);
+}
+
+.header-inner {
+  max-width: 1640px;
+  margin: 0 auto;
+  padding: 0.75rem 2.5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.brand-badge {
+  background: linear-gradient(135deg, rgba(250, 115, 40, 0.2), rgba(250, 115, 40, 0.05));
+  border: 1px solid rgba(250, 115, 40, 0.45);
+  color: var(--color-accent-papaya);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  padding: 0.32rem 0.65rem;
+  border-radius: 4px;
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.brand-title {
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.brand-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  color: #94a3b8;
+}
+
+/* Telemetry Instrument Readout Pills */
+.telemetry-pill-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.telemetry-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.32rem 0.7rem;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+}
+
+.pill-label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #64748b;
+}
+
+.pill-value {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  font-variant-numeric: tabular-nums;
+}
+
+.pill-value--accent {
+  color: var(--color-trail);
+}
+
+.scroll-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.38rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: opacity 0.35s ease;
+}
+
+.scroll-hint-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent-papaya);
+  box-shadow: 0 0 8px var(--color-accent-papaya);
+}
+
+.scroll-arrow {
+  animation: bounceDown 1.8s infinite ease-in-out;
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+}
+
+/* --------------------------------------------------------------------------
+   Pinned Scroll Section & Three-Zone Wind-Tunnel Stage
+   -------------------------------------------------------------------------- */
+.section {
+  position: relative;
+  height: 320vh;
+  background: var(--color-bg-dark);
+}
+
+.track {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 4.4rem 0 1.25rem;
+  background: radial-gradient(ellipse 90% 60% at 50% 45%, #131824 0%, #090b10 70%, #06070a 100%);
+  overflow: hidden;
+}
+
+/* Wind-Tunnel Isobar Grid & Atmospheric Backdrop */
+.wind-tunnel-backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ambient-radial-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 45%, rgba(69, 219, 125, 0.06), transparent 45%),
+    radial-gradient(circle at 80% 48%, rgba(250, 115, 40, 0.07), transparent 45%);
+}
+
+.isobar-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+  background-size: 80px 80px;
+  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 46%, rgba(0, 0, 0, 0.75) 0%, transparent 82%);
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 46%, rgba(0, 0, 0, 0.75) 0%, transparent 82%);
+}
+
+/* --------------------------------------------------------------------------
+   Upper Zone: Architectural Kinetic Headline Matrix ("WELCOME ITZFIZZ")
+   -------------------------------------------------------------------------- */
+.headline-stage {
+  position: relative;
+  z-index: 15;
+  width: 100%;
+  max-width: 1640px;
+  margin: 0 auto;
+  padding: 0.25rem 3.5vw 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.headline-meta-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  color: #64748b;
+  opacity: 0.72;
+}
+
+.meta-tag {
+  color: var(--color-accent-papaya);
+  font-weight: 700;
+}
+
+.meta-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(250, 115, 40, 0.35), rgba(255, 255, 255, 0.05));
+}
+
+.value-add {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5.4vw, 5.25rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  text-transform: uppercase;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.letter-cell {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.letter-cell--space {
+  width: 2.2vw;
+}
+
+/* Recessed architectural wireframe ghost letter visible before car arrives */
+.letter-ghost {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.14);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Illuminated solid letter revealed as the McLaren's laser scanner passes */
+.value-letter {
+  position: absolute;
+  inset: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  opacity: 0;
+  will-change: opacity, transform;
+  text-shadow:
+    0 0 28px rgba(69, 219, 125, 0.45),
+    0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.value-letter.is-leading {
+  color: #fff7ed;
+  text-shadow:
+    0 0 34px rgba(250, 115, 40, 0.9),
+    0 0 16px rgba(69, 219, 125, 0.7),
+    0 2px 10px rgba(0, 0, 0, 0.85);
+}
+
+.value-letter::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 8%;
+  right: 8%;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--color-trail), var(--color-accent-papaya));
+  box-shadow: 0 0 10px var(--color-trail);
+}
+
+.value-letter.space {
+  width: 0.4em;
+}
+.value-letter.space::after {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   Center Zone: Wind-Tunnel Carbon Runway & Slipstream Wake
+   -------------------------------------------------------------------------- */
+.runway-shell {
+  position: relative;
+  z-index: 12;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.runway-ruler {
+  position: relative;
+  width: 93vw;
+  margin: 0 auto 0.3rem;
+  height: 16px;
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+.ruler-tick {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.ruler-tick:first-child {
+  transform: translateX(0);
+  align-items: flex-start;
+}
+.ruler-tick:last-child {
+  transform: translateX(-100%);
+  align-items: flex-end;
+}
+
+.tick-mark {
+  width: 1px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.tick-label {
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.12em;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.road {
+  width: 100vw;
+  height: var(--road-height);
+  background:
+    radial-gradient(460px 150px at var(--car-spot-x, 180px) 50%, rgba(250, 115, 40, 0.16), rgba(69, 219, 125, 0.07) 55%, transparent 100%),
+    repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.01) 0px, rgba(255, 255, 255, 0.01) 1px, transparent 1px, transparent 4px),
+    linear-gradient(180deg, #06080c 0%, #0e121b 32%, #141925 50%, #0e121b 68%, #06080c 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  box-shadow:
+    0 -24px 56px rgba(0, 0, 0, 0.85),
+    0 24px 56px rgba(0, 0, 0, 0.85),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.06);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* Aerodynamic Streamlines & Center Calibration Axis */
+.road-markings {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.road-line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.03));
+}
+.road-line--top { top: 10px; }
+.road-line--bottom { bottom: 10px; }
+
+.streamline {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(148, 163, 184, 0.055) 0px,
+    rgba(148, 163, 184, 0.055) 120px,
+    transparent 120px,
+    transparent 180px
+  );
+}
+.streamline--upper { top: 28%; }
+.streamline--lower { bottom: 28%; }
+
+.road-dashes {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1) 0px,
+    rgba(255, 255, 255, 0.1) 36px,
+    transparent 36px,
+    transparent 72px
+  );
+}
+
+/* Sector Timing Gates along Runway */
+.sector-gates-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.sector-gate {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  opacity: 0.2;
+  transition: opacity 0.25s ease;
+}
+
+.sector-gate--active {
+  opacity: 0.88;
+}
+
+.gate-tag,
+.gate-dist {
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--gate-color, #ffffff);
+  background: rgba(7, 8, 12, 0.88);
+  padding: 1px 5px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gate-beam {
+  flex: 1;
+  width: 1px;
+  background: linear-gradient(180deg, var(--gate-color, #ffffff), transparent 50%, var(--gate-color, #ffffff));
+}
+
+/* Kinetic Aerodynamic Slipstream Wake (#trail) */
+.trail {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(69, 219, 125, 0.02) 0%,
+    rgba(69, 219, 125, 0.16) 55%,
+    rgba(250, 115, 40, 0.28) 88%,
+    rgba(250, 115, 40, 0.48) 100%
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 0;
+  will-change: width;
+}
+
+/* Dual Wingtip Light Streaks inside Slipstream */
+.trail-vortex {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent 10%, rgba(69, 219, 125, 0.65) 60%, var(--color-accent-papaya) 100%);
+  box-shadow: 0 0 10px rgba(69, 219, 125, 0.45);
+}
+.trail-vortex--top { top: 22%; }
+.trail-vortex--bottom { bottom: 22%; }
+
+.trail-glow {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 130px;
+  background: radial-gradient(ellipse at right center, rgba(250, 115, 40, 0.38) 0%, transparent 75%);
+}
+
+.trail-laser {
+  position: absolute;
+  right: 0;
+  top: 12%;
+  bottom: 12%;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, #ff9e5e, #45db7d, #ff9e5e, transparent);
+  box-shadow: 0 0 14px 2px rgba(250, 115, 40, 0.65);
+}
+
+/* --------------------------------------------------------------------------
+   Photorealistic McLaren 720S Vehicle Unit (#carWrapper & #car)
+   -------------------------------------------------------------------------- */
+.car-wrapper {
+  position: absolute;
+  top: calc(50% - (var(--car-height) / 2));
+  transform: translate3d(0, 0, 0);
+  left: 0;
+  height: var(--car-height);
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  will-change: transform;
+  --car-energy: 0.65;
+}
+
+.car {
+  height: var(--car-height);
+  width: auto;
+  display: block;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 18px 26px rgba(0, 0, 0, 0.94))
+    drop-shadow(0 5px 10px rgba(0, 0, 0, 0.88))
+    drop-shadow(0 0 18px rgba(250, 115, 40, 0.22));
+  user-select: none;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Wet-asphalt ambient reflection & rim aura */
+.car-underglow {
+  position: absolute;
+  inset: 12% 5% 12% 5%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(250, 115, 40, 0.38) 0%,
+    rgba(69, 219, 125, 0.16) 52%,
+    transparent 76%
+  );
+  opacity: var(--car-energy, 0.75);
+  filter: blur(12px);
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* Deep contact occlusion shadow directly under chassis & tires */
+.car-shadow {
+  position: absolute;
+  inset: 9% 3% 9% 3%;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.96) 22%, rgba(0, 0, 0, 0.68) 56%, rgba(0, 0, 0, 0) 78%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Rear McLaren LED blade taillight & twin-turbo exhaust thermal reflection */
+.car-exhaust-flare {
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 78%;
+  background:
+    radial-gradient(ellipse at right top, rgba(255, 56, 26, 0.6) 0%, transparent 65%),
+    radial-gradient(ellipse at right bottom, rgba(255, 56, 26, 0.6) 0%, transparent 65%),
+    radial-gradient(ellipse at right center, rgba(250, 115, 40, 0.48) 0%, transparent 72%);
+  opacity: var(--car-energy, 0.75);
+  filter: blur(5px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Realistic Dual Bi-Xenon / LED Headlight Projection Cones */
+.car-headlight-beam {
+  position: absolute;
+  right: -190px;
+  top: 0;
+  bottom: 0;
+  width: 205px;
+  opacity: var(--car-energy, 0.8);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.car-headlight-beam::before,
+.car-headlight-beam::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 200px;
+  height: 48px;
+  background: radial-gradient(
+    ellipse at left center,
+    rgba(255, 252, 240, 0.56) 0%,
+    rgba(224, 242, 254, 0.26) 32%,
+    rgba(106, 201, 255, 0.07) 65%,
+    transparent 88%
+  );
+  filter: blur(3px);
+}
+
+.car-headlight-beam::before {
+  top: 11%;
+  transform: rotate(-3deg);
+  transform-origin: left center;
+}
+
+.car-headlight-beam::after {
+  bottom: 11%;
+  transform: rotate(3deg);
+  transform-origin: left center;
+}
+
+/* --------------------------------------------------------------------------
+   Lower Zone: 4-Module Architectural Telemetry Bento Bay
+   -------------------------------------------------------------------------- */
+.telemetry-bento-bay {
+  position: relative;
+  z-index: 25;
+  width: 100%;
+  max-width: 1640px;
+  margin: 0 auto;
+  padding: 0 3.5vw;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.15rem;
+}
+
+.cards-lane {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.15rem;
+  width: 100%;
+}
+
+.cards-lane--top,
+.cards-lane--bottom {
+  position: relative;
+}
+
+/* Base Telemetry Module (IMPORTANT: No conflicting CSS transition on opacity/transform!) */
+.text-box {
+  position: relative;
+  background: linear-gradient(165deg, rgba(22, 27, 38, 0.92) 0%, rgba(12, 15, 23, 0.96) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: var(--color-text-light);
+  border-radius: var(--card-radius);
+  padding: 1.1rem 1.3rem;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-top: 3px solid var(--card-accent, #def54f);
+  overflow: hidden;
+  /* Initial hidden state driven exclusively by GSAP */
+  opacity: 0;
+  transform: translate3d(0, 20px, 0) scale(0.96);
+  will-change: opacity, transform;
+}
+
+.text-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 65px;
+  background: radial-gradient(ellipse at top left, var(--card-glow, rgba(255, 255, 255, 0.08)), transparent 70%);
+  pointer-events: none;
+}
+
+/* Card Specific Accent Tokens */
+#box1 {
+  --card-accent: #def54f;
+  border-top-color: #def54f;
+}
+
+#box2 {
+  --card-accent: #6ac9ff;
+  border-top-color: #6ac9ff;
+}
+
+#box3 {
+  --card-accent: #e2e8f0;
+  border-top-color: #333338;
+  border-top: 3px solid #e2e8f0;
+}
+
+#box4 {
+  --card-accent: #fa7328;
+  border-top-color: #fa7328;
+}
+
+.card-telemetry-head {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+}
+
+.card-sector-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  color: var(--card-accent);
+  font-weight: 700;
+}
+
+.sector-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--card-accent);
+  box-shadow: 0 0 8px var(--card-accent);
+}
+
+.card-code {
+  color: #64748b;
+}
+
+.card-stat-row {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.num-box {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 2.8vw, 3.1rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--card-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-unit-tag {
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.12em;
+  color: #94a3b8;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.box-desc {
+  font-size: 0.94rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #f8fafc;
+}
+
+.box-subdetail {
+  font-size: 0.74rem;
+  line-height: 1.35;
+  color: #94a3b8;
+}
+
+.card-progress-track {
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 99px;
+  overflow: hidden;
+  margin-top: 0.25rem;
+}
+
+.card-progress-fill {
+  height: 100%;
+  background: var(--card-accent);
+  box-shadow: 0 0 10px var(--card-accent);
+}
+
+/* --------------------------------------------------------------------------
+   Post-Journey Resolution Section (EditorialFinale)
+   -------------------------------------------------------------------------- */
+.summary-section {
+  position: relative;
+  background: linear-gradient(180deg, #06070a 0%, #0b0e17 100%);
+  padding: 5.5rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 30;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.summary-card {
+  max-width: 760px;
+  width: 100%;
+  background: rgba(15, 19, 29, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 2.75rem;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+}
+
+.summary-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--color-accent-papaya);
+  margin-bottom: 0.6rem;
+}
+
+.summary-card h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  font-weight: 800;
+  margin-bottom: 0.85rem;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.summary-card p {
+  color: #94a3b8;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 580px;
+  margin: 0 auto 1.75rem;
+}
+
+.summary-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.spec-cell {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.spec-key {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  color: #64748b;
+}
+
+.spec-val {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.restart-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, var(--color-trail), #22c55e);
+  color: #090d16;
+  border: none;
+  padding: 0.9rem 1.85rem;
+  font-size: 0.92rem;
+  font-weight: 800;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(69, 219, 125, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.restart-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(69, 219, 125, 0.5);
+}
+
+.restart-btn:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Ergonomics: Laptop, Tablet, Mobile & Edge Viewports
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  :root {
+    --road-height: 155px;
+    --car-height: 126px;
+  }
+
+  .telemetry-bento-bay {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .cards-lane {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .box-subdetail {
+    display: none;
+  }
+
+  .summary-specs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --road-height: 140px;
+    --car-height: 110px;
+  }
+
+  .header-inner {
+    padding: 0.6rem 1rem;
+  }
+
+  .brand-subtitle,
+  .telemetry-pill--desktop {
+    display: none;
+  }
+
+  .brand-title {
+    font-size: 0.75rem;
+  }
+
+  .scroll-hint {
+    font-size: 0.62rem;
+    padding: 0.28rem 0.6rem;
+  }
+
+  .track {
+    padding: 3.6rem 0 0.85rem;
+  }
+
+  .headline-stage {
+    padding: 0 1rem;
+  }
+
+  .value-add {
+    font-size: clamp(1.45rem, 6vw, 2.4rem);
+  }
+
+  .runway-ruler {
+    display: none;
+  }
+
+  .telemetry-bento-bay {
+    padding: 0 1rem;
+    gap: 0.55rem;
+  }
+
+  .cards-lane {
+    gap: 0.55rem;
+  }
+
+  .text-box {
+    padding: 0.75rem 0.85rem;
+    border-radius: 10px;
+    gap: 0.2rem;
+  }
+
+  .num-box {
+    font-size: 1.75rem;
+  }
+
+  .stat-unit-tag,
+  .card-code {
+    display: none;
+  }
+
+  .box-desc {
+    font-size: 0.74rem;
+    line-height: 1.2;
+  }
+}
+
+/* Ultra-Narrow Viewports (<= 360px & < 320px) */
+@media (max-width: 360px) {
+  :root {
+    --road-height: 110px;
+    --car-height: 84px;
+  }
+
+  .site-header {
+    padding: 0;
+  }
+
+  .brand-badge {
+    font-size: 0.6rem;
+    padding: 0.18rem 0.38rem;
+  }
+
+  .scroll-hint {
+    display: none;
+  }
+
+  .value-add {
+    font-size: clamp(1.1rem, 5.2vw, 1.4rem);
+  }
+
+  .telemetry-bento-bay {
+    padding: 0 0.5rem;
+    gap: 0.4rem;
+  }
+
+  .cards-lane {
+    gap: 0.4rem;
+  }
+
+  .text-box {
+    padding: 0.55rem 0.6rem;
+    border-radius: 8px;
+  }
+
+  .num-box {
+    font-size: 1.4rem;
+  }
+
+  .box-desc {
+    font-size: 0.66rem;
+    line-height: 1.15;
+  }
+}
+
+/* Landscape Mobile & Short Viewports (<= 480px height) */
+@media (max-height: 480px) {
+  :root {
+    --road-height: 96px;
+    --car-height: 76px;
+  }
+
+  .track {
+    padding: 3rem 0 0.5rem;
+  }
+
+  .headline-meta-bar,
+  .runway-ruler,
+  .box-subdetail,
+  .card-telemetry-head,
+  .card-progress-track,
+  .stat-unit-tag {
+    display: none;
+  }
+
+  .value-add {
+    font-size: clamp(1.35rem, 3.8vw, 2.1rem);
+  }
+
+  .telemetry-bento-bay {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .text-box {
+    flex-direction: row;
+    align-items: center;
+    padding: 0.45rem 0.75rem;
+    gap: 0.55rem;
+    border-radius: 8px;
+  }
+
+  .num-box {
+    font-size: 1.35rem;
+  }
+
+  .box-desc {
+    font-size: 0.7rem;
+    line-height: 1.15;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Reduced Motion Accessibility (WCAG 2.2 AAA Compliant)
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .section {
+    height: auto;
+  }
+
+  .track {
+    position: relative;
+    height: auto;
+    min-height: 100vh;
+    padding: 5.5rem 1.5rem 3rem;
+    gap: 2.5rem;
+  }
+
+  .car-wrapper {
+    position: relative;
+    transform: none !important;
+    top: auto;
+    left: auto;
+    margin: 0 auto;
+  }
+
+  .trail {
+    width: 100% !important;
+  }
+
+  .value-letter {
+    opacity: 1 !important;
+  }
+
+  .text-box {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .scroll-arrow {
+    animation: none;
+  }
+}

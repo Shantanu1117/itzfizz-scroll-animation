@@ -1,0 +1,21 @@
+{
+  "name": "carzzz",
+  "version": "1.0.0",
+  "description": "High-performance scroll-driven McLaren 720S animation with kinetic telemetry",
+  "main": "main.js",
+  "scripts": {
+    "build": "node build.js",
+    "test": "node test.js",
+    "start": "node server.js",
+    "preview": "SERVE_DIST=true node server.js"
+  },
+  "keywords": [
+    "gsap",
+    "scrolltrigger",
+    "motion-engineering",
+    "animation",
+    "car"
+  ],
+  "author": "",
+  "license": "MIT"
+}
