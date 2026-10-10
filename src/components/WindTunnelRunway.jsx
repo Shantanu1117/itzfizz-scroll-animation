@@ -1,7 +1,10 @@
 /**
- * Wind-Tunnel Carbon Runway & Aerodynamic Slipstream Component
- * Reimagines the travel environment with calibration ticks, sector timing gates,
- * plasma slipstream wake, and multi-layered vehicle lighting.
+ * Mountain Canyon Test Track & Illuminated Slipstream Component (WindTunnelRunway)
+ * Matches the reference image:
+ * - Horizontal wet-asphalt mountain track with green & amber illumination
+ * - SEC.01 (0 - 60M), SEC.02 (60M - 120M), SEC.03 (120M - 180M), SEC.04 (180M - 240M) markers with glowing centerline nodes
+ * - Green laser light trails & directional chevrons behind the car
+ * - Photorealistic top-down orange McLaren 720S with contact shadow, rear green-amber glow, and warm twin headlights
  */
 
 export function WindTunnelRunway({
@@ -15,7 +18,7 @@ export function WindTunnelRunway({
 }) {
   return (
     <div className="runway-shell">
-      {/* Top Calibration Scale */}
+      {/* Subtle Calibration Ruler */}
       <div className="runway-ruler" aria-hidden="true">
         {markers.map((m, idx) => (
           <div key={idx} className="ruler-tick" style={{ left: m.pos }}>
@@ -25,15 +28,15 @@ export function WindTunnelRunway({
         ))}
       </div>
 
-      {/* Main Aerodynamic Runway (#road) */}
+      {/* Main Illuminated Mountain Track (#road) */}
       <div
         className="road"
         id="road"
         ref={roadRef}
         role="img"
-        aria-label="Aerodynamic wind-tunnel test track with McLaren 720S sports car and kinetic slipstream"
+        aria-label="Mountain canyon test track with photorealistic orange McLaren 720S and green-amber slipstream illumination"
       >
-        {/* Wind-tunnel aerodynamic streamlines & carbon surface grid */}
+        {/* Subtle Asphalt Lane Lines & Center Measurement Axis */}
         <div className="road-markings" aria-hidden="true">
           <div className="road-line road-line--top"></div>
           <div className="streamline streamline--upper"></div>
@@ -42,14 +45,14 @@ export function WindTunnelRunway({
           <div className="road-line road-line--bottom"></div>
         </div>
 
-        {/* 4 Illuminated Sector Timing Gates along the track */}
+        {/* Four Track Sections: SEC.01 through SEC.04 */}
         <div className="sector-gates-layer" aria-hidden="true">
           {metrics.map((metric, idx) => (
             <div
               key={metric.id}
-              className="sector-gate"
+              className={`sector-gate ${idx === 0 ? "sector-gate--active" : ""}`}
               style={{
-                left: `${Math.round(metric.startProgress * 100 + 8)}%`,
+                left: metric.gatePos || `${Math.round(metric.startProgress * 100 + 8)}%`,
                 "--gate-color": metric.accent
               }}
               ref={(el) => {
@@ -58,22 +61,34 @@ export function WindTunnelRunway({
                 }
               }}
             >
-              <span className="gate-tag">{metric.sector}</span>
-              <span className="gate-beam"></span>
-              <span className="gate-dist">{metric.gateDistance}</span>
+              <div className="gate-header">
+                <span className="gate-tag">{metric.sector}</span>
+                <span className="gate-dist">{metric.gateDistance}</span>
+              </div>
+              <span className="gate-beam">
+                <span className="gate-node"></span>
+              </span>
             </div>
           ))}
         </div>
 
-        {/* Kinetic Aerodynamic Slipstream Wake (#trail) */}
+        {/* Green & Amber Illuminated Trail (#trail) */}
         <div className="trail" id="trail" ref={trailRef} aria-hidden="true">
           <div className="trail-vortex trail-vortex--top"></div>
+          <div className="trail-vortex trail-vortex--upper-mid"></div>
+          <div className="trail-core-beam"></div>
+          <div className="trail-chevrons">
+            <span>›</span>
+            <span>›</span>
+            <span>›</span>
+            <span>›</span>
+          </div>
           <div className="trail-vortex trail-vortex--bottom"></div>
           <div className="trail-glow"></div>
           <div className="trail-laser"></div>
         </div>
 
-        {/* McLaren 720S Vehicle Unit (#carWrapper & #car) */}
+        {/* Photorealistic Orange McLaren 720S (#carWrapper & #car) */}
         <div className="car-wrapper" id="carWrapper" ref={carWrapperRef}>
           <div className="car-underglow" aria-hidden="true"></div>
           <div className="car-shadow" aria-hidden="true"></div>

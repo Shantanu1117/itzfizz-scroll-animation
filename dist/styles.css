@@ -1,28 +1,29 @@
 /* ==========================================================================
-   ITZFIZZ // McLaren 720S Wind-Tunnel Telemetry Atelier
-   Design System, Kinetic Typography, Aerodynamic Slipstream & Bento HUD
+   ITZFIZZ // McLaren 720S Velocity Lab — Mountain Canyon Edition
+   Pixel-Accurate Visual Specification, Two-Line Headline, Canyon Track & 4-Panel HUD
    ========================================================================== */
 
 :root {
-  --color-bg-dark: #07080c;
-  --color-track-bg: #0b0d14;
-  --color-road: #12151f;
+  --color-bg-dark: #05070b;
+  --color-track-bg: #080b11;
+  --color-road: #0f141d;
   --color-trail: #45db7d;
-  --color-trail-glow: rgba(69, 219, 125, 0.42);
+  --color-trail-glow: rgba(69, 219, 125, 0.52);
   --color-text-dark: #0f172a;
   --color-text-light: #f8fafc;
   --color-accent-papaya: #fa7328;
   --color-accent-lime: #def54f;
   --color-accent-cyan: #6ac9ff;
   --color-accent-slate: #333338;
+  --color-accent-amber: #f59e0b;
 
-  --font-display: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "SF Pro Display", "Montserrat", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  --road-height: 192px;
-  --car-height: 158px;
-  --card-radius: 14px;
+  --road-height: 188px;
+  --car-height: 162px;
+  --card-radius: 4px;
   --card-shadow: 0 18px 40px -10px rgba(0, 0, 0, 0.65), 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
@@ -73,7 +74,7 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   Editorial Wind-Tunnel Instrument Bar (Navbar)
+   A. Compact Dark Automotive Navigation Bar (Navbar)
    -------------------------------------------------------------------------- */
 .site-header {
   position: fixed;
@@ -81,105 +82,156 @@ body {
   left: 0;
   width: 100%;
   z-index: 100;
-  background: rgba(7, 8, 12, 0.78);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(5, 7, 11, 0.88) 0%, rgba(5, 7, 11, 0.42) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .header-progress-rail {
   width: 100%;
   height: 2px;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.05);
   overflow: hidden;
 }
 
 .header-progress-fill {
   width: 0%;
   height: 100%;
-  background: linear-gradient(90deg, var(--color-trail), var(--color-accent-lime), var(--color-accent-papaya));
-  box-shadow: 0 0 12px var(--color-accent-papaya);
+  background: linear-gradient(90deg, var(--color-trail), var(--color-accent-amber), var(--color-accent-papaya));
+  box-shadow: 0 0 12px var(--color-trail);
 }
 
 .header-inner {
-  max-width: 1640px;
+  max-width: 1720px;
   margin: 0 auto;
-  padding: 0.75rem 2.5vw;
+  padding: 0.55rem 2.2vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
 }
 
+.header-left-cluster {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+}
+
 .brand {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.55rem;
 }
 
-.brand-badge {
-  background: linear-gradient(135deg, rgba(250, 115, 40, 0.2), rgba(250, 115, 40, 0.05));
-  border: 1px solid rgba(250, 115, 40, 0.45);
-  color: var(--color-accent-papaya);
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  padding: 0.32rem 0.65rem;
-  border-radius: 4px;
+.brand-slashes {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
-.brand-copy {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
+.slash-bar {
+  display: inline-block;
+  width: 6px;
+  height: 16px;
+  background: linear-gradient(180deg, #ff8c3b 0%, #fa7328 100%);
+  transform: skewX(-24deg);
+  border-radius: 1px;
+  box-shadow: 0 0 10px rgba(250, 115, 40, 0.45);
 }
 
 .brand-title {
   font-family: var(--font-display);
-  font-size: 0.86rem;
-  font-weight: 800;
+  font-size: 1.05rem;
+  font-weight: 900;
+  font-style: italic;
   letter-spacing: 0.1em;
   color: #ffffff;
   text-transform: uppercase;
 }
 
-.brand-subtitle {
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
   font-family: var(--font-mono);
   font-size: 0.62rem;
   letter-spacing: 0.16em;
-  color: #94a3b8;
+  text-transform: uppercase;
 }
 
-/* Telemetry Instrument Readout Pills */
+.nav-sep {
+  color: rgba(255, 255, 255, 0.22);
+  font-weight: 400;
+}
+
+.nav-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  color: rgba(226, 232, 240, 0.68);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+.nav-item:hover {
+  color: #ffffff;
+}
+
+.nav-item--active {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.nav-active-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-trail);
+  box-shadow: 0 0 8px var(--color-trail);
+}
+
+/* Compact Live Telemetry Pills */
 .telemetry-pill-group {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.45rem;
+  margin-left: auto;
+  margin-right: 0.75rem;
 }
 
 .telemetry-pill {
   display: flex;
   align-items: center;
-  gap: 0.45rem;
-  background: rgba(255, 255, 255, 0.035);
+  gap: 0.38rem;
+  background: rgba(10, 14, 22, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 0.32rem 0.7rem;
-  border-radius: 6px;
+  padding: 0.22rem 0.55rem;
+  border-radius: 4px;
   font-family: var(--font-mono);
 }
 
+.telemetry-pill--sr,
+.scroll-hint--sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
 .pill-label {
-  font-size: 0.62rem;
+  font-size: 0.55rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   color: #64748b;
 }
 
 .pill-value {
-  font-size: 0.74rem;
+  font-size: 0.65rem;
   font-weight: 700;
-  color: #f1f5f9;
+  color: #e2e8f0;
   font-variant-numeric: tabular-nums;
 }
 
@@ -187,41 +239,49 @@ body {
   color: var(--color-trail);
 }
 
-.scroll-hint {
+/* Right-aligned Test Track & Vehicle Identification Badge */
+.track-id-badge {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: #cbd5e1;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 0.38rem 0.85rem;
-  border-radius: 999px;
+  gap: 0.65rem;
+  background: linear-gradient(135deg, rgba(20, 24, 34, 0.85) 0%, rgba(10, 13, 19, 0.92) 100%);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  transition: opacity 0.35s ease;
+  border-left: 2px solid rgba(245, 158, 11, 0.65);
+  padding: 0.35rem 0.95rem 0.35rem 0.8rem;
+  clip-path: polygon(10px 0, 100% 0, 100% 100%, 0 100%);
 }
 
-.scroll-hint-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--color-accent-papaya);
-  box-shadow: 0 0 8px var(--color-accent-papaya);
+.track-id-icon {
+  color: var(--color-accent-amber);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.scroll-arrow {
-  animation: bounceDown 1.8s infinite ease-in-out;
+.track-id-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  font-family: var(--font-mono);
+  text-align: left;
 }
 
-@keyframes bounceDown {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(3px); }
+.track-id-title {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #f8fafc;
+}
+
+.track-id-sub {
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--color-accent-amber);
 }
 
 /* --------------------------------------------------------------------------
-   Pinned Scroll Section & Three-Zone Wind-Tunnel Stage
+   C. Pinned Scroll Section & Nighttime Mountain Canyon Environment
    -------------------------------------------------------------------------- */
 .section {
   position: relative;
@@ -238,12 +298,12 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
-  padding: 4.4rem 0 1.25rem;
-  background: radial-gradient(ellipse 90% 60% at 50% 45%, #131824 0%, #090b10 70%, #06070a 100%);
+  padding: 3.8rem 0 0.9rem;
+  background: #05070b;
   overflow: hidden;
 }
 
-/* Wind-Tunnel Isobar Grid & Atmospheric Backdrop */
+/* Full-Viewport Mountain Canyon Backdrop */
 .wind-tunnel-backdrop {
   position: absolute;
   inset: 0;
@@ -251,77 +311,111 @@ body {
   z-index: 1;
 }
 
+.mountain-canyon-photo {
+  position: absolute;
+  inset: 0;
+  background-image: url("mountain-canyon-bg.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: contrast(1.04) saturate(1.05);
+}
+
 .ambient-radial-glow {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 20% 45%, rgba(69, 219, 125, 0.06), transparent 45%),
-    radial-gradient(circle at 80% 48%, rgba(250, 115, 40, 0.07), transparent 45%);
+    linear-gradient(90deg, rgba(4, 7, 11, 0.72) 0%, rgba(4, 7, 11, 0.32) 45%, rgba(4, 7, 11, 0.08) 75%, rgba(4, 7, 11, 0.25) 100%),
+    linear-gradient(180deg, rgba(4, 7, 11, 0.65) 0%, transparent 24%, transparent 64%, rgba(4, 7, 11, 0.86) 100%);
 }
 
 .isobar-grid {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
-  background-size: 80px 80px;
-  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 46%, rgba(0, 0, 0, 0.75) 0%, transparent 82%);
-  mask-image: radial-gradient(ellipse 75% 65% at 50% 46%, rgba(0, 0, 0, 0.75) 0%, transparent 82%);
+    linear-gradient(rgba(255, 255, 255, 0.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+  background-size: 96px 96px;
+  -webkit-mask-image: radial-gradient(ellipse 60% 50% at 30% 30%, rgba(0, 0, 0, 0.45) 0%, transparent 80%);
+  mask-image: radial-gradient(ellipse 60% 50% at 30% 30%, rgba(0, 0, 0, 0.45) 0%, transparent 80%);
 }
 
 /* --------------------------------------------------------------------------
-   Upper Zone: Architectural Kinetic Headline Matrix ("WELCOME ITZFIZZ")
+   B. Hero Headline ("WELCOME / ITZFIZZ" + "A HIGHER STANDARD IN MOTION")
    -------------------------------------------------------------------------- */
 .headline-stage {
   position: relative;
   z-index: 15;
   width: 100%;
-  max-width: 1640px;
+  max-width: 1720px;
   margin: 0 auto;
-  padding: 0.25rem 3.5vw 0;
+  padding: 0.4rem 3.8vw 0;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 0.35rem;
 }
 
 .headline-meta-bar {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.16em;
-  color: #64748b;
-  opacity: 0.72;
+  gap: 0.9rem;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  color: rgba(226, 232, 240, 0.85);
+  text-transform: uppercase;
 }
 
 .meta-tag {
-  color: var(--color-accent-papaya);
-  font-weight: 700;
+  color: rgba(241, 245, 249, 0.9);
 }
 
 .meta-line {
-  flex: 1;
+  width: 120px;
   height: 1px;
-  background: linear-gradient(90deg, rgba(250, 115, 40, 0.35), rgba(255, 255, 255, 0.05));
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.04));
 }
 
 .value-add {
   position: relative;
   z-index: 5;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.05rem;
   font-family: var(--font-display);
-  font-size: clamp(2.2rem, 5.4vw, 5.25rem);
+  font-size: clamp(2.8rem, 6.8vw, 6.4rem);
   font-weight: 900;
-  letter-spacing: -0.02em;
-  line-height: 1.02;
+  line-height: 0.92;
   text-transform: uppercase;
   user-select: none;
   white-space: nowrap;
+}
+
+.headline-row {
+  display: inline-flex;
+  align-items: center;
+}
+
+.headline-row--top {
+  letter-spacing: 0.025em;
+}
+
+.headline-row--bottom {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.2rem;
+  margin-top: 0.1rem;
+}
+
+.headline-itzfizz-word {
+  display: inline-flex;
+  align-items: center;
+  font-size: clamp(2.4rem, 5.6vw, 5.3rem);
+  letter-spacing: 0.055em;
 }
 
 .letter-cell {
@@ -332,61 +426,101 @@ body {
 }
 
 .letter-cell--space {
-  width: 2.2vw;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
-/* Recessed architectural wireframe ghost letter visible before car arrives */
+/* Wireframe Ghost Layer visible before car reveals each letter */
 .letter-ghost {
-  color: transparent;
-  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.14);
+  color: rgba(15, 23, 42, 0.28);
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.22);
   pointer-events: none;
   user-select: none;
 }
 
-/* Illuminated solid letter revealed as the McLaren's laser scanner passes */
+.letter-cell--itzfizz .letter-ghost {
+  color: rgba(6, 18, 14, 0.35);
+  -webkit-text-stroke: 1.8px rgba(69, 219, 125, 0.32);
+}
+
+/* Active Revealed Character Layer */
 .value-letter {
   position: absolute;
   inset: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
   opacity: 0;
   will-change: opacity, transform;
+}
+
+/* Line 1 ("WELCOME"): White with subtle photographic mountain silhouette texture inside lower half */
+.letter-cell--welcome-letter {
+  background-image:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #f8fafc 43%,
+      rgba(226, 232, 240, 0.72) 58%,
+      rgba(30, 41, 59, 0.88) 78%,
+      #cbd5e1 100%
+    ),
+    url("mountain-canyon-bg.jpg");
+  background-size: 100% 100%, 420% 260%;
+  background-position: center center, 72% 18%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.85));
+}
+
+/* Line 2 ("ITZFIZZ"): Dark fill, bright neon-green outline, and restrained green glow */
+.letter-cell--itzfizz-letter {
+  color: rgba(7, 16, 14, 0.78);
+  -webkit-text-stroke: 2.2px #45db7d;
   text-shadow:
-    0 0 28px rgba(69, 219, 125, 0.45),
-    0 2px 10px rgba(0, 0, 0, 0.8);
+    0 0 16px rgba(69, 219, 125, 0.62),
+    0 0 32px rgba(69, 219, 125, 0.28);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.85));
 }
 
 .value-letter.is-leading {
-  color: #fff7ed;
-  text-shadow:
-    0 0 34px rgba(250, 115, 40, 0.9),
-    0 0 16px rgba(69, 219, 125, 0.7),
-    0 2px 10px rgba(0, 0, 0, 0.85);
+  filter:
+    drop-shadow(0 0 22px rgba(69, 219, 125, 0.9))
+    drop-shadow(0 4px 12px rgba(0, 0, 0, 0.85));
 }
 
-.value-letter::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 8%;
-  right: 8%;
-  height: 3px;
-  border-radius: 2px;
-  background: linear-gradient(90deg, var(--color-trail), var(--color-accent-papaya));
-  box-shadow: 0 0 10px var(--color-trail);
+/* Supporting Caption to the right of ITZFIZZ ("A HIGHER / STANDARD / IN MOTION") */
+.headline-side-caption {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.1rem;
 }
 
-.value-letter.space {
-  width: 0.4em;
+.side-caption-rule {
+  width: 1px;
+  height: 2.9rem;
+  background: rgba(255, 255, 255, 0.35);
 }
-.value-letter.space::after {
-  display: none;
+
+.side-caption-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.22rem;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  line-height: 1.25;
+  color: rgba(226, 232, 240, 0.86);
 }
 
 /* --------------------------------------------------------------------------
-   Center Zone: Wind-Tunnel Carbon Runway & Slipstream Wake
+   D & E. Illuminated Canyon Track, Green/Amber Trail, SEC.01-04 & McLaren 720S
    -------------------------------------------------------------------------- */
 .runway-shell {
   position: relative;
@@ -394,15 +528,16 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin: -0.4rem 0;
 }
 
 .runway-ruler {
   position: relative;
-  width: 93vw;
-  margin: 0 auto 0.3rem;
-  height: 16px;
+  width: 92vw;
+  margin: 0 auto 0.15rem;
+  height: 14px;
   pointer-events: none;
-  opacity: 0.65;
+  opacity: 0.35;
 }
 
 .ruler-tick {
@@ -412,52 +547,39 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: 1px;
 }
-.ruler-tick:first-child {
-  transform: translateX(0);
-  align-items: flex-start;
-}
-.ruler-tick:last-child {
-  transform: translateX(-100%);
-  align-items: flex-end;
-}
+.ruler-tick:first-child { transform: translateX(0); align-items: flex-start; }
+.ruler-tick:last-child { transform: translateX(-100%); align-items: flex-end; }
 
 .tick-mark {
   width: 1px;
-  height: 5px;
-  background: rgba(255, 255, 255, 0.24);
+  height: 4px;
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .tick-label {
   font-family: var(--font-mono);
-  font-size: 0.56rem;
+  font-size: 0.5rem;
   letter-spacing: 0.12em;
-  color: #64748b;
-  white-space: nowrap;
+  color: #94a3b8;
 }
 
 .road {
   width: 100vw;
   height: var(--road-height);
   background:
-    radial-gradient(460px 150px at var(--car-spot-x, 180px) 50%, rgba(250, 115, 40, 0.16), rgba(69, 219, 125, 0.07) 55%, transparent 100%),
-    repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.01) 0px, rgba(255, 255, 255, 0.01) 1px, transparent 1px, transparent 4px),
-    linear-gradient(180deg, #06080c 0%, #0e121b 32%, #141925 50%, #0e121b 68%, #06080c 100%);
+    radial-gradient(480px 155px at var(--car-spot-x, 240px) 50%, rgba(250, 115, 40, 0.22), rgba(69, 219, 125, 0.12) 55%, transparent 100%),
+    linear-gradient(180deg, rgba(6, 9, 14, 0.15) 0%, rgba(10, 14, 22, 0.34) 50%, rgba(6, 9, 14, 0.18) 100%);
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
-  box-shadow:
-    0 -24px 56px rgba(0, 0, 0, 0.85),
-    0 24px 56px rgba(0, 0, 0, 0.85),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.06);
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Aerodynamic Streamlines & Center Calibration Axis */
+/* Subtle Track Lane Lines & Center Measurement Axis */
 .road-markings {
   position: absolute;
   inset: 0;
@@ -470,26 +592,20 @@ body {
   left: 0;
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.03));
+  background: linear-gradient(90deg, rgba(69, 219, 125, 0.25), rgba(255, 255, 255, 0.12) 55%, rgba(245, 158, 11, 0.28) 100%);
 }
-.road-line--top { top: 10px; }
-.road-line--bottom { bottom: 10px; }
+.road-line--top { top: 8px; }
+.road-line--bottom { bottom: 8px; }
 
 .streamline {
   position: absolute;
   left: 0;
   width: 100%;
   height: 1px;
-  background: repeating-linear-gradient(
-    90deg,
-    rgba(148, 163, 184, 0.055) 0px,
-    rgba(148, 163, 184, 0.055) 120px,
-    transparent 120px,
-    transparent 180px
-  );
+  background: linear-gradient(90deg, rgba(69, 219, 125, 0.14) 0%, rgba(255, 255, 255, 0.06) 50%, rgba(245, 158, 11, 0.14) 100%);
 }
-.streamline--upper { top: 28%; }
-.streamline--lower { bottom: 28%; }
+.streamline--upper { top: 24%; }
+.streamline--lower { bottom: 24%; }
 
 .road-dashes {
   position: absolute;
@@ -497,69 +613,88 @@ body {
   top: 50%;
   transform: translateY(-50%);
   width: 100%;
-  height: 2px;
-  background: repeating-linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.1) 0px,
-    rgba(255, 255, 255, 0.1) 36px,
-    transparent 36px,
-    transparent 72px
-  );
+  height: 1px;
+  background: linear-gradient(90deg, rgba(69, 219, 125, 0.35) 0%, rgba(255, 255, 255, 0.18) 55%, rgba(245, 158, 11, 0.3) 100%);
 }
 
-/* Sector Timing Gates along Runway */
+/* Four Track Section Markers: SEC.01 through SEC.04 */
 .sector-gates-layer {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 4;
+  z-index: 5;
 }
 
 .sector-gate {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: 16%;
+  bottom: 12%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
-  opacity: 0.2;
+  align-items: flex-start;
+  opacity: 0.65;
   transition: opacity 0.25s ease;
 }
 
 .sector-gate--active {
-  opacity: 0.88;
+  opacity: 1;
 }
 
-.gate-tag,
+.gate-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 6px;
+  transform: translateX(-4px);
+}
+
+.gate-tag {
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+}
+
 .gate-dist {
   font-family: var(--font-mono);
-  font-size: 0.54rem;
-  font-weight: 700;
+  font-size: 0.56rem;
+  font-weight: 600;
   letter-spacing: 0.12em;
-  color: var(--gate-color, #ffffff);
-  background: rgba(7, 8, 12, 0.88);
-  padding: 1px 5px;
-  border-radius: 3px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(226, 232, 240, 0.72);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
 }
 
 .gate-beam {
+  position: relative;
   flex: 1;
   width: 1px;
-  background: linear-gradient(180deg, var(--gate-color, #ffffff), transparent 50%, var(--gate-color, #ffffff));
+  background: linear-gradient(180deg, var(--gate-color, #45db7d) 0%, rgba(255, 255, 255, 0.12) 100%);
 }
 
-/* Kinetic Aerodynamic Slipstream Wake (#trail) */
+.gate-node {
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid var(--gate-color, #45db7d);
+  box-shadow: 0 0 12px 2px var(--gate-color, #45db7d);
+}
+
+/* Green & Amber Illuminated Slipstream Trail (#trail) */
 .trail {
   height: 100%;
   background: linear-gradient(
     90deg,
-    rgba(69, 219, 125, 0.02) 0%,
-    rgba(69, 219, 125, 0.16) 55%,
-    rgba(250, 115, 40, 0.28) 88%,
-    rgba(250, 115, 40, 0.48) 100%
+    rgba(69, 219, 125, 0.04) 0%,
+    rgba(69, 219, 125, 0.24) 48%,
+    rgba(69, 219, 125, 0.46) 84%,
+    rgba(250, 180, 60, 0.62) 100%
   );
   position: absolute;
   top: 0;
@@ -567,41 +702,70 @@ body {
   z-index: 3;
   width: 0;
   will-change: width;
+  overflow: hidden;
 }
 
-/* Dual Wingtip Light Streaks inside Slipstream */
 .trail-vortex {
   position: absolute;
   left: 0;
   right: 0;
-  height: 1.5px;
-  background: linear-gradient(90deg, transparent 10%, rgba(69, 219, 125, 0.65) 60%, var(--color-accent-papaya) 100%);
-  box-shadow: 0 0 10px rgba(69, 219, 125, 0.45);
+  height: 2px;
+  background: linear-gradient(90deg, transparent 4%, rgba(69, 219, 125, 0.75) 55%, #a7f3d0 92%, #ffffff 100%);
+  box-shadow: 0 0 14px rgba(69, 219, 125, 0.8);
 }
-.trail-vortex--top { top: 22%; }
-.trail-vortex--bottom { bottom: 22%; }
+.trail-vortex--top { top: 8px; }
+.trail-vortex--upper-mid { top: 26%; height: 1.5px; opacity: 0.85; }
+.trail-vortex--bottom { bottom: 8px; }
+
+.trail-core-beam {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 6px;
+  background: linear-gradient(90deg, rgba(69, 219, 125, 0.08) 0%, #45db7d 42%, #bbf7d0 86%, #ffffff 100%);
+  box-shadow:
+    0 0 22px 4px rgba(69, 219, 125, 0.85),
+    0 0 42px 8px rgba(69, 219, 125, 0.42);
+}
+
+.trail-chevrons {
+  position: absolute;
+  right: 60px;
+  bottom: 15%;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: rgba(110, 231, 183, 0.72);
+  text-shadow: 0 0 10px rgba(69, 219, 125, 0.8);
+  pointer-events: none;
+}
 
 .trail-glow {
   position: absolute;
   right: 0;
   top: 0;
   height: 100%;
-  width: 130px;
-  background: radial-gradient(ellipse at right center, rgba(250, 115, 40, 0.38) 0%, transparent 75%);
+  width: 150px;
+  background: radial-gradient(ellipse at right center, rgba(255, 250, 210, 0.75) 0%, rgba(69, 219, 125, 0.48) 42%, transparent 78%);
 }
 
 .trail-laser {
   position: absolute;
   right: 0;
-  top: 12%;
-  bottom: 12%;
-  width: 2px;
-  background: linear-gradient(180deg, transparent, #ff9e5e, #45db7d, #ff9e5e, transparent);
-  box-shadow: 0 0 14px 2px rgba(250, 115, 40, 0.65);
+  top: 8%;
+  bottom: 8%;
+  width: 3px;
+  background: linear-gradient(180deg, transparent, #a7f3d0, #ffffff, #fde68a, transparent);
+  box-shadow: 0 0 18px 4px rgba(69, 219, 125, 0.85);
 }
 
 /* --------------------------------------------------------------------------
-   Photorealistic McLaren 720S Vehicle Unit (#carWrapper & #car)
+   Photorealistic Orange McLaren 720S (#carWrapper & #car)
    -------------------------------------------------------------------------- */
 .car-wrapper {
   position: absolute;
@@ -613,7 +777,7 @@ body {
   display: flex;
   align-items: center;
   will-change: transform;
-  --car-energy: 0.65;
+  --car-energy: 0.75;
 }
 
 .car {
@@ -622,9 +786,9 @@ body {
   display: block;
   object-fit: contain;
   filter:
-    drop-shadow(0 18px 26px rgba(0, 0, 0, 0.94))
-    drop-shadow(0 5px 10px rgba(0, 0, 0, 0.88))
-    drop-shadow(0 0 18px rgba(250, 115, 40, 0.22));
+    drop-shadow(0 18px 26px rgba(0, 0, 0, 0.95))
+    drop-shadow(0 5px 10px rgba(0, 0, 0, 0.9))
+    drop-shadow(0 0 18px rgba(250, 115, 40, 0.25));
   user-select: none;
   pointer-events: none;
   will-change: transform;
@@ -633,14 +797,14 @@ body {
 /* Wet-asphalt ambient reflection & rim aura */
 .car-underglow {
   position: absolute;
-  inset: 12% 5% 12% 5%;
+  inset: 10% 4% 10% 4%;
   background: radial-gradient(
     ellipse at center,
-    rgba(250, 115, 40, 0.38) 0%,
-    rgba(69, 219, 125, 0.16) 52%,
-    transparent 76%
+    rgba(250, 115, 40, 0.42) 0%,
+    rgba(69, 219, 125, 0.22) 55%,
+    transparent 78%
   );
-  opacity: var(--car-energy, 0.75);
+  opacity: var(--car-energy, 0.8);
   filter: blur(12px);
   z-index: -2;
   pointer-events: none;
@@ -649,38 +813,36 @@ body {
 /* Deep contact occlusion shadow directly under chassis & tires */
 .car-shadow {
   position: absolute;
-  inset: 9% 3% 9% 3%;
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.96) 22%, rgba(0, 0, 0, 0.68) 56%, rgba(0, 0, 0, 0) 78%);
+  inset: 8% 3% 8% 3%;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.96) 24%, rgba(0, 0, 0, 0.72) 58%, rgba(0, 0, 0, 0) 78%);
   z-index: -1;
   pointer-events: none;
 }
 
-/* Rear McLaren LED blade taillight & twin-turbo exhaust thermal reflection */
+/* Rear emerald-amber tail flare matching the reference image */
 .car-exhaust-flare {
   position: absolute;
-  left: -40px;
+  left: -46px;
   top: 50%;
   transform: translateY(-50%);
-  width: 60px;
-  height: 78%;
+  width: 68px;
+  height: 82%;
   background:
-    radial-gradient(ellipse at right top, rgba(255, 56, 26, 0.6) 0%, transparent 65%),
-    radial-gradient(ellipse at right bottom, rgba(255, 56, 26, 0.6) 0%, transparent 65%),
-    radial-gradient(ellipse at right center, rgba(250, 115, 40, 0.48) 0%, transparent 72%);
-  opacity: var(--car-energy, 0.75);
+    radial-gradient(ellipse at right center, rgba(255, 255, 235, 0.9) 0%, rgba(110, 231, 183, 0.72) 38%, rgba(69, 219, 125, 0.35) 68%, transparent 85%);
+  opacity: var(--car-energy, 0.85);
   filter: blur(5px);
   pointer-events: none;
   z-index: -1;
 }
 
-/* Realistic Dual Bi-Xenon / LED Headlight Projection Cones */
+/* Warm Golden-White Dual Headlight Projection Cones */
 .car-headlight-beam {
   position: absolute;
   right: -190px;
   top: 0;
   bottom: 0;
   width: 205px;
-  opacity: var(--car-energy, 0.8);
+  opacity: var(--car-energy, 0.85);
   pointer-events: none;
   z-index: -1;
 }
@@ -694,9 +856,9 @@ body {
   height: 48px;
   background: radial-gradient(
     ellipse at left center,
-    rgba(255, 252, 240, 0.56) 0%,
-    rgba(224, 242, 254, 0.26) 32%,
-    rgba(106, 201, 255, 0.07) 65%,
+    rgba(255, 251, 235, 0.78) 0%,
+    rgba(253, 224, 71, 0.38) 28%,
+    rgba(245, 158, 11, 0.14) 62%,
     transparent 88%
   );
   filter: blur(3px);
@@ -715,24 +877,31 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   Lower Zone: 4-Module Architectural Telemetry Bento Bay
+   F & G. Four Lower Metric Panels & Corner Branding (TelemetryBentoGrid)
    -------------------------------------------------------------------------- */
-.telemetry-bento-bay {
+.lower-telemetry-zone {
   position: relative;
   z-index: 25;
   width: 100%;
-  max-width: 1640px;
+  max-width: 1720px;
   margin: 0 auto;
-  padding: 0 3.5vw;
+  padding: 0 3.8vw;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.telemetry-bento-bay {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.15rem;
+  gap: 0;
 }
 
 .cards-lane {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.15rem;
+  gap: 0;
   width: 100%;
 }
 
@@ -741,23 +910,21 @@ body {
   position: relative;
 }
 
-/* Base Telemetry Module (IMPORTANT: No conflicting CSS transition on opacity/transform!) */
+/* Transparent Dark Metric Panel (IMPORTANT: No conflicting CSS transition on opacity/transform!) */
 .text-box {
   position: relative;
-  background: linear-gradient(165deg, rgba(22, 27, 38, 0.92) 0%, rgba(12, 15, 23, 0.96) 100%);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: linear-gradient(180deg, rgba(7, 11, 16, 0.56) 0%, rgba(4, 7, 11, 0.76) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: var(--color-text-light);
-  border-radius: var(--card-radius);
-  padding: 1.1rem 1.3rem;
-  box-shadow: var(--card-shadow);
+  border-radius: 0;
+  padding: 0.9rem 1.8rem 0.75rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   gap: 0.35rem;
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-top: 3px solid var(--card-accent, #def54f);
+  border-right: 1px solid rgba(255, 255, 255, 0.14);
   overflow: hidden;
   /* Initial hidden state driven exclusively by GSAP */
   opacity: 0;
@@ -765,123 +932,189 @@ body {
   will-change: opacity, transform;
 }
 
-.text-box::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 65px;
-  background: radial-gradient(ellipse at top left, var(--card-glow, rgba(255, 255, 255, 0.08)), transparent 70%);
-  pointer-events: none;
-}
-
-/* Card Specific Accent Tokens */
+/* Reference Color Tokens Preserved */
 #box1 {
-  --card-accent: #def54f;
-  border-top-color: #def54f;
+  --card-accent: #45db7d;
+  --card-legacy-lime: #def54f;
 }
-
 #box2 {
-  --card-accent: #6ac9ff;
-  border-top-color: #6ac9ff;
+  --card-accent: #ffffff;
+  --card-legacy-cyan: #6ac9ff;
 }
-
 #box3 {
-  --card-accent: #e2e8f0;
-  border-top-color: #333338;
-  border-top: 3px solid #e2e8f0;
+  --card-accent: #f59e0b;
+  --card-legacy-slate: #333338;
 }
-
 #box4 {
   --card-accent: #fa7328;
-  border-top-color: #fa7328;
+  border-right: none;
 }
 
-.card-telemetry-head {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.1em;
-}
-
-.card-sector-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.38rem;
-  color: var(--card-accent);
-  font-weight: 700;
-}
-
-.sector-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--card-accent);
-  box-shadow: 0 0 8px var(--card-accent);
-}
-
-.card-code {
-  color: #64748b;
+.card-telemetry-head,
+.stat-unit-tag {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
 }
 
 .card-stat-row {
   width: 100%;
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.5rem;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.85rem;
+}
+
+.card-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(226, 232, 240, 0.85);
+}
+
+.metric-icon--green {
+  color: #45db7d;
+  filter: drop-shadow(0 0 8px rgba(69, 219, 125, 0.45));
 }
 
 .num-box {
   font-family: var(--font-display);
-  font-size: clamp(2.1rem, 2.8vw, 3.1rem);
-  font-weight: 900;
+  font-size: clamp(2.2rem, 3.1vw, 3.35rem);
+  font-weight: 800;
   line-height: 1;
-  letter-spacing: -0.03em;
-  color: var(--card-accent);
+  letter-spacing: -0.02em;
+  color: var(--card-num-color, #ffffff);
   font-variant-numeric: tabular-nums;
 }
 
-.stat-unit-tag {
-  font-family: var(--font-mono);
-  font-size: 0.56rem;
-  letter-spacing: 0.12em;
-  color: #94a3b8;
-  padding: 0.15rem 0.4rem;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.05);
+#box1 .num-box {
+  color: #5ef28e;
+  text-shadow: 0 0 22px rgba(69, 219, 125, 0.35);
+}
+
+.card-body-copy {
+  padding-left: 2.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
 }
 
 .box-desc {
-  font-size: 0.94rem;
+  font-size: 0.95rem;
   font-weight: 700;
   line-height: 1.25;
-  color: #f8fafc;
+  color: #ffffff;
+  max-width: 220px;
 }
 
 .box-subdetail {
   font-size: 0.74rem;
-  line-height: 1.35;
-  color: #94a3b8;
+  line-height: 1.38;
+  color: rgba(203, 213, 225, 0.72);
+  max-width: 240px;
+}
+
+.card-footer-progress {
+  width: 100%;
+  padding-left: 2.6rem;
+  margin-top: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.32rem;
 }
 
 .card-progress-track {
   width: 100%;
-  height: 3px;
-  background: rgba(255, 255, 255, 0.08);
+  max-width: 180px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.12);
   border-radius: 99px;
-  overflow: hidden;
-  margin-top: 0.25rem;
+  overflow: visible;
+  position: relative;
 }
 
 .card-progress-fill {
   height: 100%;
-  background: var(--card-accent);
-  box-shadow: 0 0 10px var(--card-accent);
+  background: var(--card-bar-color, #ffffff);
+  box-shadow: 0 0 10px var(--card-bar-color, #ffffff);
+  border-radius: 99px;
+}
+
+.card-index-num {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(226, 232, 240, 0.75);
+}
+
+/* Bottom Bar: Left Scroll-to-Explore & Right Performance Beyond Routes */
+.stage-bottom-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 0.15rem;
+}
+
+.scroll-explore-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.explore-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.explore-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 6px #ffffff;
+}
+
+.explore-line {
+  width: 26px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.explore-text {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: rgba(226, 232, 240, 0.78);
+}
+
+.performance-routes-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.routes-brand-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  line-height: 1.35;
+  color: rgba(226, 232, 240, 0.78);
 }
 
 /* --------------------------------------------------------------------------
@@ -889,8 +1122,8 @@ body {
    -------------------------------------------------------------------------- */
 .summary-section {
   position: relative;
-  background: linear-gradient(180deg, #06070a 0%, #0b0e17 100%);
-  padding: 5.5rem 2rem;
+  background: linear-gradient(180deg, #05070b 0%, #090d16 100%);
+  padding: 5rem 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -901,17 +1134,17 @@ body {
 .summary-card {
   max-width: 760px;
   width: 100%;
-  background: rgba(15, 19, 29, 0.9);
+  background: rgba(12, 16, 24, 0.92);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 18px;
-  padding: 2.75rem;
+  border-radius: 14px;
+  padding: 2.5rem;
   text-align: center;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
 }
 
 .summary-eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   color: var(--color-accent-papaya);
@@ -920,7 +1153,7 @@ body {
 
 .summary-card h2 {
   font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
   font-weight: 800;
   margin-bottom: 0.85rem;
   color: #ffffff;
@@ -929,7 +1162,7 @@ body {
 
 .summary-card p {
   color: #94a3b8;
-  font-size: 1rem;
+  font-size: 0.96rem;
   line-height: 1.6;
   max-width: 580px;
   margin: 0 auto 1.75rem;
@@ -939,7 +1172,7 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.75rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.85rem;
   text-align: left;
 }
 
@@ -955,13 +1188,13 @@ body {
 
 .spec-key {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: 0.58rem;
   letter-spacing: 0.12em;
   color: #64748b;
 }
 
 .spec-val {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: #f1f5f9;
 }
@@ -971,12 +1204,12 @@ body {
   align-items: center;
   gap: 0.6rem;
   background: linear-gradient(135deg, var(--color-trail), #22c55e);
-  color: #090d16;
+  color: #060b10;
   border: none;
-  padding: 0.9rem 1.85rem;
-  font-size: 0.92rem;
+  padding: 0.85rem 1.75rem;
+  font-size: 0.9rem;
   font-weight: 800;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
   box-shadow: 0 6px 24px rgba(69, 219, 125, 0.35);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
@@ -995,20 +1228,35 @@ body {
 /* --------------------------------------------------------------------------
    Responsive Ergonomics: Laptop, Tablet, Mobile & Edge Viewports
    -------------------------------------------------------------------------- */
-@media (max-width: 1024px) {
+@media (max-width: 1120px) {
   :root {
-    --road-height: 155px;
-    --car-height: 126px;
+    --road-height: 160px;
+    --car-height: 132px;
+  }
+
+  .header-nav {
+    display: none;
   }
 
   .telemetry-bento-bay {
     grid-template-columns: 1fr;
-    gap: 0.75rem;
+    gap: 0.5rem;
   }
 
   .cards-lane {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .text-box {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+  }
+
+  .card-body-copy,
+  .card-footer-progress {
+    padding-left: 0;
   }
 
   .box-subdetail {
@@ -1027,25 +1275,18 @@ body {
   }
 
   .header-inner {
-    padding: 0.6rem 1rem;
+    padding: 0.5rem 1rem;
   }
 
-  .brand-subtitle,
-  .telemetry-pill--desktop {
+  .telemetry-pill--desktop,
+  .headline-side-caption,
+  .runway-ruler,
+  .stage-bottom-bar {
     display: none;
   }
 
-  .brand-title {
-    font-size: 0.75rem;
-  }
-
-  .scroll-hint {
-    font-size: 0.62rem;
-    padding: 0.28rem 0.6rem;
-  }
-
   .track {
-    padding: 3.6rem 0 0.85rem;
+    padding: 3.4rem 0 0.75rem;
   }
 
   .headline-stage {
@@ -1053,35 +1294,24 @@ body {
   }
 
   .value-add {
-    font-size: clamp(1.45rem, 6vw, 2.4rem);
+    font-size: clamp(2rem, 9.5vw, 3.2rem);
   }
 
-  .runway-ruler {
-    display: none;
+  .headline-itzfizz-word {
+    font-size: clamp(1.75rem, 8.2vw, 2.8rem);
   }
 
-  .telemetry-bento-bay {
+  .lower-telemetry-zone {
     padding: 0 1rem;
-    gap: 0.55rem;
-  }
-
-  .cards-lane {
-    gap: 0.55rem;
   }
 
   .text-box {
-    padding: 0.75rem 0.85rem;
-    border-radius: 10px;
+    padding: 0.65rem 0.85rem;
     gap: 0.2rem;
   }
 
   .num-box {
-    font-size: 1.75rem;
-  }
-
-  .stat-unit-tag,
-  .card-code {
-    display: none;
+    font-size: 1.65rem;
   }
 
   .box-desc {
@@ -1097,39 +1327,28 @@ body {
     --car-height: 84px;
   }
 
-  .site-header {
-    padding: 0;
-  }
-
-  .brand-badge {
-    font-size: 0.6rem;
-    padding: 0.18rem 0.38rem;
-  }
-
-  .scroll-hint {
+  .track-id-badge {
     display: none;
   }
 
   .value-add {
-    font-size: clamp(1.1rem, 5.2vw, 1.4rem);
+    font-size: clamp(1.6rem, 8.5vw, 2.2rem);
   }
 
-  .telemetry-bento-bay {
+  .headline-itzfizz-word {
+    font-size: clamp(1.4rem, 7.5vw, 1.9rem);
+  }
+
+  .lower-telemetry-zone {
     padding: 0 0.5rem;
-    gap: 0.4rem;
-  }
-
-  .cards-lane {
-    gap: 0.4rem;
   }
 
   .text-box {
-    padding: 0.55rem 0.6rem;
-    border-radius: 8px;
+    padding: 0.5rem 0.6rem;
   }
 
   .num-box {
-    font-size: 1.4rem;
+    font-size: 1.35rem;
   }
 
   .box-desc {
@@ -1146,41 +1365,48 @@ body {
   }
 
   .track {
-    padding: 3rem 0 0.5rem;
+    padding: 2.8rem 0 0.4rem;
   }
 
   .headline-meta-bar,
+  .headline-side-caption,
   .runway-ruler,
   .box-subdetail,
-  .card-telemetry-head,
-  .card-progress-track,
-  .stat-unit-tag {
+  .card-footer-progress,
+  .stage-bottom-bar {
     display: none;
   }
 
   .value-add {
-    font-size: clamp(1.35rem, 3.8vw, 2.1rem);
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.75rem;
+    font-size: clamp(1.5rem, 4.2vw, 2.3rem);
+  }
+
+  .headline-itzfizz-word {
+    font-size: clamp(1.5rem, 4.2vw, 2.3rem);
   }
 
   .telemetry-bento-bay {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
+    gap: 0.45rem;
   }
 
   .text-box {
     flex-direction: row;
     align-items: center;
-    padding: 0.45rem 0.75rem;
-    gap: 0.55rem;
-    border-radius: 8px;
+    padding: 0.4rem 0.65rem;
+    gap: 0.5rem;
+    border-radius: 6px;
   }
 
   .num-box {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
   }
 
   .box-desc {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     line-height: 1.15;
   }
 }
@@ -1197,8 +1423,8 @@ body {
     position: relative;
     height: auto;
     min-height: 100vh;
-    padding: 5.5rem 1.5rem 3rem;
-    gap: 2.5rem;
+    padding: 5rem 1.5rem 2.5rem;
+    gap: 2rem;
   }
 
   .car-wrapper {
@@ -1220,9 +1446,5 @@ body {
   .text-box {
     opacity: 1 !important;
     transform: none !important;
-  }
-
-  .scroll-arrow {
-    animation: none;
   }
 }

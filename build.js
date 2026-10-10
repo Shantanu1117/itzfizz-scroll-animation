@@ -25,7 +25,8 @@ const assets = [
   'gsap.min.js',
   'ScrollTrigger.min.js',
   'main.js',
-  'McLaren 720S 2022 top view.png'
+  'McLaren 720S 2022 top view.png',
+  'mountain-canyon-bg.jpg'
 ];
 
 // Required modular React source files

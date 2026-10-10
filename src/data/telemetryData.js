@@ -1,6 +1,6 @@
 /**
  * Separation of Content and Presentation
- * Core assignment impact metrics, headline characters, and wind-tunnel calibration sectors
+ * Exact visual specification data matching the ITZFIZZ Mountain Canyon Reference Design
  */
 
 export const HEADLINE_TEXT = "WELCOME ITZFIZZ";
@@ -26,71 +26,90 @@ export const HEADLINE_CHARS = [
 export const IMPACT_METRICS = [
   {
     id: "box1",
+    indexLabel: "01",
     sector: "SEC.01",
-    gateDistance: "060M",
+    gateDistance: "0 - 60M",
+    gatePos: "9%",
     code: "PKP-ADOPT // +58",
     value: "58%",
     numericValue: 58,
     label: "Increase in pick up point use",
     detail: "First-wave network density & automated locker routing efficiency",
-    accent: "#def54f",
-    accentSecondary: "rgba(222, 245, 79, 0.16)",
+    icon: "network",
+    accent: "#45db7d",
+    numColor: "#5ef28e",
+    barColor: "#45db7d",
+    accentSecondary: "rgba(69, 219, 125, 0.18)",
     startProgress: 0.12,
     endProgress: 0.28,
-    enterFromY: 28
+    enterFromY: 24
   },
   {
     id: "box2",
+    indexLabel: "02",
     sector: "SEC.02",
-    gateDistance: "120M",
+    gateDistance: "60M - 120M",
+    gatePos: "65.5%",
     code: "COM-DEFLECT // -23",
     value: "23%",
     numericValue: 23,
     label: "Decreased in customer phone calls",
     detail: "Proactive real-time telemetry notifications reducing manual inquiries",
-    accent: "#6ac9ff",
-    accentSecondary: "rgba(106, 201, 255, 0.16)",
+    icon: "phone",
+    accent: "#ffffff",
+    numColor: "#ffffff",
+    barColor: "#e2e8f0",
+    accentSecondary: "rgba(255, 255, 255, 0.12)",
     startProgress: 0.31,
     endProgress: 0.47,
-    enterFromY: 28
+    enterFromY: 24
   },
   {
     id: "box3",
+    indexLabel: "03",
     sector: "SEC.03",
-    gateDistance: "180M",
+    gateDistance: "120M - 180M",
+    gatePos: "77.5%",
     code: "PKP-VELOCITY // +27",
     value: "27%",
     numericValue: 27,
     label: "Increase in pick up point use",
-    detail: "Sustained repeat hub utilization across high-throughput urban corridors",
-    accent: "#e2e8f0",
-    accentSecondary: "rgba(226, 232, 240, 0.14)",
+    detail: "Higher fulfillment speed with optimized route planning",
+    icon: "bars",
+    accent: "#f59e0b",
+    numColor: "#ffffff",
+    barColor: "#e2e8f0",
+    accentSecondary: "rgba(226, 232, 240, 0.12)",
     startProgress: 0.50,
     endProgress: 0.66,
-    enterFromY: 28
+    enterFromY: 24
   },
   {
     id: "box4",
+    indexLabel: "04",
     sector: "SEC.04",
-    gateDistance: "240M",
-    code: "COM-RESOLVE // -40",
+    gateDistance: "180M - 240M",
+    gatePos: "89%",
+    code: "OPS-EFFICIENCY // +40",
     value: "40%",
     numericValue: 40,
-    label: "Decreased in customer phone calls",
-    detail: "End-to-end autonomous handoff verification at destination terminals",
-    accent: "#fa7328",
-    accentSecondary: "rgba(250, 115, 40, 0.18)",
+    label: "Improved operational efficiency",
+    detail: "Smarter allocation and dynamic load balancing",
+    icon: "bolt",
+    accent: "#45db7d",
+    numColor: "#ffffff",
+    barColor: "#f59e0b",
+    accentSecondary: "rgba(245, 158, 11, 0.16)",
     startProgress: 0.69,
     endProgress: 0.85,
-    enterFromY: 28
+    enterFromY: 24
   }
 ];
 
 export const RUNWAY_MARKERS = [
-  { pos: "0%", label: "000M // START GATE" },
-  { pos: "20%", label: "050M // SEC.01" },
-  { pos: "40%", label: "100M // SEC.02" },
-  { pos: "60%", label: "150M // SEC.03" },
-  { pos: "80%", label: "200M // SEC.04" },
-  { pos: "100%", label: "250M // APEX LOCK" }
+  { pos: "0%", label: "000M" },
+  { pos: "25%", label: "060M" },
+  { pos: "50%", label: "120M" },
+  { pos: "75%", label: "180M" },
+  { pos: "100%", label: "240M" }
 ];

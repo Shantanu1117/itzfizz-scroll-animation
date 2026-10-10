@@ -67,10 +67,11 @@ export function setupWindTunnelMotion(refs = {}, scopeEl = null) {
     const rightMargin = Math.min(36, Math.max(12, roadWidth * 0.025));
     endX = Math.max(80, roadWidth - carWidth - rightMargin);
 
-    letterMetrics = letters.map((letter) => {
+    letterMetrics = letters.map((letter, idx) => {
       const rect = letter.getBoundingClientRect();
-      const relativeLeft = rect.left - roadRect.left;
-      const relativeCenter = relativeLeft + rect.width * 0.5;
+      const sequentialSpan = roadWidth * 0.80;
+      const relativeLeft = (idx / Math.max(1, letters.length - 1)) * sequentialSpan + 18;
+      const relativeCenter = relativeLeft + (rect.width || 40) * 0.5;
       return {
         el: letter,
         left: relativeLeft,

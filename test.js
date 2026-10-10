@@ -484,6 +484,18 @@ runTest('End-to-end runtime simulation: React 18 mount + GSAP ScrollTrigger scru
   assert.strictEqual(Number(elementsById['box4'].style.opacity), 0, '#box4 must reverse to opacity 0 at 0% scroll');
 });
 
+runTest('Pixel-accurate Mountain Canyon Reference Specification (header nav, 2-line headline, canyon backdrop, sector markers, 4 metric icons & corner branding)', () => {
+  const bgFile = path.join(__dirname, 'mountain-canyon-bg.jpg');
+  assert.ok(fs.existsSync(bgFile) && fs.statSync(bgFile).size > 200000, 'mountain-canyon-bg.jpg must exist and be high-resolution');
+  assert.ok(css.includes('mountain-canyon-bg.jpg'), 'styles.css must reference mountain-canyon-bg.jpg');
+  assert.ok(html.includes('VELOCITY LAB') && html.includes('AERO DYNAMICS') && html.includes('TEST TRACK 01'), 'Header must match reference navigation and track badge');
+  assert.ok(html.includes('DRIVEN BY INNOVATION') && html.includes('A HIGHER') && html.includes('IN MOTION'), 'Hero headline must include introductory and side supporting labels');
+  assert.ok(html.includes('headline-row--top') && html.includes('headline-row--bottom'), 'Headline must use two-line WELCOME / ITZFIZZ layout');
+  assert.ok(html.includes('0 - 60M') && html.includes('60M - 120M') && html.includes('120M - 180M') && html.includes('180M - 240M'), 'All four track distance ranges must match reference');
+  assert.ok(html.includes('Improved operational efficiency') && html.includes('Higher fulfillment speed with optimized route planning'), 'Metric descriptions must match reference');
+  assert.ok(html.includes('SCROLL TO EXPLORE') && html.includes('BEYOND ROUTES'), 'Bottom corner indicators must match reference');
+});
+
 // ============================================================================
 // Final Evaluation
 // ============================================================================

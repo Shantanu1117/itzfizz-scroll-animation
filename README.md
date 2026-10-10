@@ -31,19 +31,20 @@ Carzzz/
 ├── gsap.min.js                         # Self-contained GSAP 3.12 runtime with gsap.context()
 ├── ScrollTrigger.min.js                # Self-contained ScrollTrigger 3.12 momentum scrub engine
 ├── McLaren 720S 2022 top view.png      # Photorealistic RGBA top-down McLaren 720S (1342 × 689)
+├── mountain-canyon-bg.jpg              # High-resolution nighttime mountain canyon & viaduct backdrop
 ├── src/
 │   ├── main.jsx                        # React 18 root bootstrap
 │   ├── App.jsx                         # Master component & GSAP context lifecycle orchestrator
 │   ├── data/
 │   │   └── telemetryData.js            # Content/presentation separation (metrics, chars, markers)
 │   └── components/
-│       ├── Navbar.jsx                  # Live telemetry instrument bar
-│       ├── HeadlineMatrix.jsx          # Dual-plane kinetic typography component
-│       ├── WindTunnelRunway.jsx        # Wet-asphalt track, sector gates, slipstream & vehicle
-│       ├── TelemetryBentoGrid.jsx      # 4-module architectural Bento HUD
+│       ├── Navbar.jsx                  # Compact automotive navbar (ITZFIZZ, VELOCITY LAB, TEST TRACK 01)
+│       ├── HeadlineMatrix.jsx          # Two-line WELCOME / ITZFIZZ kinetic typography component
+│       ├── WindTunnelRunway.jsx        # Canyon highway track, SEC.01–04 nodes, slipstream & vehicle
+│       ├── TelemetryBentoGrid.jsx      # 4-column metric panels (58%, 23%, 27%, 40%) & corner branding
 │       └── EditorialFinale.jsx         # Post-journey resolution & replay controls
 ├── build.js                            # Production bundler & syntax/asset validator (outputs ./dist)
-├── test.js                             # Automated 28-assertion recruiter verification suite
+├── test.js                             # Automated 30-assertion verification test suite
 ├── server.js                           # Zero-dependency static HTTP server with auto-port fallback
 ├── vercel.json                         # Vercel static deployment configuration
 ├── netlify.toml                        # Netlify static deployment configuration

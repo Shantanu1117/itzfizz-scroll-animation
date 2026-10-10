@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ITZFIZZ // McLaren 720S Wind-Tunnel Telemetry Atelier</title>
+    <title>ITZFIZZ // McLaren 720S Velocity Lab — Driven by Innovation</title>
     <meta
       name="description"
-      content="Reimagined scroll-driven aerodynamic telemetry experience featuring the McLaren 720S, optical headline matrix reveal, and four-sector impact instrumentation."
+      content="Scroll-driven cinematic automotive experience featuring the McLaren 720S across a nighttime mountain canyon test track with synchronized telemetry."
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -14,49 +14,77 @@
     <div id="root">
       <div class="atelier-shell">
         <a href="#content-track" class="skip-link">
-          Skip to Interactive Wind-Tunnel Track
+          Skip to Interactive Mountain Track
         </a>
 
-        <!-- Editorial Wind-Tunnel Instrument Bar -->
+        <!-- Pixel-Accurate Automotive Navigation Bar -->
         <header class="site-header" role="banner">
           <div class="header-progress-rail" aria-hidden="true">
             <div class="header-progress-fill" id="topBarFill"></div>
           </div>
 
           <div class="header-inner">
-            <div class="brand">
-              <span class="brand-badge">AERO // 720S</span>
-              <div class="brand-copy">
-                <span class="brand-title">ITZFIZZ VELOCITY ATELIER</span>
-                <span class="brand-subtitle">WIND-TUNNEL TELEMETRY RUNWAY</span>
+            <div class="header-left-cluster">
+              <div class="brand">
+                <span class="brand-slashes" aria-hidden="true">
+                  <span class="slash-bar"></span>
+                  <span class="slash-bar"></span>
+                </span>
+                <span class="brand-title">ITZFIZZ</span>
               </div>
+
+              <nav class="header-nav" aria-label="Primary sections">
+                <span class="nav-sep" aria-hidden="true">/</span>
+                <a href="#content-track" class="nav-item nav-item--active">
+                  <span class="nav-active-dot" aria-hidden="true"></span>
+                  <span>VELOCITY LAB</span>
+                </a>
+                <span class="nav-sep" aria-hidden="true">/</span>
+                <a href="#road" class="nav-item">AERO DYNAMICS</a>
+                <span class="nav-sep" aria-hidden="true">|</span>
+                <a href="#box1" class="nav-item">TELEMETRY</a>
+                <span class="nav-sep" aria-hidden="true">|</span>
+                <a href="#box4" class="nav-item">PERFORMANCE</a>
+                <span class="nav-sep" aria-hidden="true">|</span>
+                <a href="#summarySection" class="nav-item">ABOUT</a>
+              </nav>
             </div>
 
             <div class="telemetry-pill-group" aria-label="Live scroll telemetry">
               <div class="telemetry-pill">
-                <span class="pill-label">PROGRESS</span>
+                <span class="pill-label">PROG</span>
                 <span class="pill-value" id="hudProgress">0%</span>
               </div>
               <div class="telemetry-pill telemetry-pill--desktop">
-                <span class="pill-label">AIRSPEED</span>
+                <span class="pill-label">VEL</span>
                 <span class="pill-value" id="hudVelocity">000 KM/H</span>
               </div>
               <div class="telemetry-pill telemetry-pill--desktop">
-                <span class="pill-label">SECTOR</span>
+                <span class="pill-label">SEC</span>
                 <span class="pill-value" id="hudSector">GATE 00</span>
               </div>
-              <div class="telemetry-pill">
+              <div class="telemetry-pill telemetry-pill--sr">
                 <span class="pill-label">STATUS</span>
                 <span class="pill-value pill-value--accent" id="hudState">STANDBY</span>
               </div>
             </div>
 
-            <div class="scroll-hint" id="scrollHint" aria-hidden="true">
+            <div class="track-id-badge">
+              <div class="track-id-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="8" stroke-opacity="0.45" />
+                  <path d="M12 7c-2.2 0-4 1.8-4 4 0 3 4 6.5 4 6.5s4-3.5 4-6.5c0-2.2-1.8-4-4-4zm0 5.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" fill="currentColor" stroke="none" />
+                </svg>
+              </div>
+              <div class="track-id-copy">
+                <span class="track-id-title">TEST TRACK 01</span>
+                <span class="track-id-sub">MCLAREN 720S</span>
+              </div>
+            </div>
+
+            <div class="scroll-hint scroll-hint--sr" id="scrollHint" aria-hidden="true">
               <span class="scroll-hint-dot"></span>
-              <span>SCROLL OR ← → TO DRIVE</span>
-              <svg class="scroll-arrow" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="M12 5v14M5 12l7 7 7-7" />
-              </svg>
+              <span>SCROLL TO EXPLORE</span>
             </div>
           </div>
         </header>
@@ -65,7 +93,7 @@
           <section
             class="section"
             id="scrollSection"
-            aria-label="McLaren 720S interactive wind-tunnel scroll track"
+            aria-label="McLaren 720S interactive mountain canyon scroll track"
           >
             <div
               class="track"
@@ -73,55 +101,71 @@
               role="region"
               aria-label="Interactive telemetry animation track"
             >
-              <!-- Ambient Wind-Tunnel Isobar Grid & Spotlight -->
+              <!-- Cinematic Nighttime Mountain Canyon Backdrop -->
               <div class="wind-tunnel-backdrop" aria-hidden="true">
+                <div class="mountain-canyon-photo"></div>
                 <div class="ambient-radial-glow"></div>
                 <div class="isobar-grid"></div>
               </div>
 
-              <!-- Upper Architectural Zone: Kinetic Headline Matrix -->
+              <!-- Upper-Left Zone: Two-Line Editorial Hero Headline ("WELCOME / ITZFIZZ") -->
               <div class="headline-stage">
                 <div class="headline-meta-bar" aria-hidden="true">
-                  <span class="meta-tag">SYS.01 // KINETIC TYPOGRAPHY MATRIX</span>
+                  <span class="meta-tag">DRIVEN BY INNOVATION</span>
                   <span class="meta-line"></span>
-                  <span class="meta-coord">SYNC: FRONT AXLE LASER SCANNER</span>
                 </div>
 
                 <h1 class="value-add" id="valueText" aria-label="WELCOME ITZFIZZ">
-                  <span class="letter-cell"><span class="letter-ghost" aria-hidden="true">W</span><span class="value-letter" data-char="W">W</span></span>
-                  <span class="letter-cell"><span class="letter-ghost" aria-hidden="true">E</span><span class="value-letter" data-char="E">E</span></span>
-                  <span class="letter-cell"><span class="letter-ghost" aria-hidden="true">L</span><span class="value-letter" data-char="L">L</span></span>
-                  <span class="letter-cell"><span class="letter-ghost" aria-hidden="true">C</span><span class="value-letter" data-char="C">C</span></span>
-                  <span class="letter-cell"><span class="letter-ghost" aria-hidden="true">O</span><span class="value-letter" data-char="O">O</span></span>
-                  <span class="letter-cell"><span class="letter-ghost" aria-hidden="true">M</span><span class="value-letter" data-char="M">M</span></span>
-                  <span class="letter-cell"><span class="letter-ghost" aria-hidden="true">E</span><span class="value-letter" data-char="E">E</span></span>
-                  <span class="letter-cell letter-cell--space"><span class="letter-ghost" aria-hidden="true">&nbsp;</span><span class="value-letter space" data-char=" ">&nbsp;</span></span>
-                  <span class="letter-cell"><span class="letter-ghost" aria-hidden="true">I</span><span class="value-letter" data-char="I">I</span></span>
-                  <span class="letter-cell"><span class="letter-ghost" aria-hidden="true">T</span><span class="value-letter" data-char="T">T</span></span>
-                  <span class="letter-cell"><span class="letter-ghost" aria-hidden="true">Z</span><span class="value-letter" data-char="Z">Z</span></span>
-                  <span class="letter-cell"><span class="letter-ghost" aria-hidden="true">F</span><span class="value-letter" data-char="F">F</span></span>
-                  <span class="letter-cell"><span class="letter-ghost" aria-hidden="true">I</span><span class="value-letter" data-char="I">I</span></span>
-                  <span class="letter-cell"><span class="letter-ghost" aria-hidden="true">Z</span><span class="value-letter" data-char="Z">Z</span></span>
-                  <span class="letter-cell"><span class="letter-ghost" aria-hidden="true">Z</span><span class="value-letter" data-char="Z">Z</span></span>
+                  <span class="headline-row headline-row--top">
+                    <span class="letter-cell letter-cell--welcome"><span class="letter-ghost" aria-hidden="true">W</span><span class="value-letter letter-cell--welcome-letter" data-char="W" data-index="0">W</span></span>
+                    <span class="letter-cell letter-cell--welcome"><span class="letter-ghost" aria-hidden="true">E</span><span class="value-letter letter-cell--welcome-letter" data-char="E" data-index="1">E</span></span>
+                    <span class="letter-cell letter-cell--welcome"><span class="letter-ghost" aria-hidden="true">L</span><span class="value-letter letter-cell--welcome-letter" data-char="L" data-index="2">L</span></span>
+                    <span class="letter-cell letter-cell--welcome"><span class="letter-ghost" aria-hidden="true">C</span><span class="value-letter letter-cell--welcome-letter" data-char="C" data-index="3">C</span></span>
+                    <span class="letter-cell letter-cell--welcome"><span class="letter-ghost" aria-hidden="true">O</span><span class="value-letter letter-cell--welcome-letter" data-char="O" data-index="4">O</span></span>
+                    <span class="letter-cell letter-cell--welcome"><span class="letter-ghost" aria-hidden="true">M</span><span class="value-letter letter-cell--welcome-letter" data-char="M" data-index="5">M</span></span>
+                    <span class="letter-cell letter-cell--welcome"><span class="letter-ghost" aria-hidden="true">E</span><span class="value-letter letter-cell--welcome-letter" data-char="E" data-index="6">E</span></span>
+                  </span>
+
+                  <span class="letter-cell letter-cell--space"><span class="letter-ghost" aria-hidden="true">&nbsp;</span><span class="value-letter space" data-char=" " data-index="7">&nbsp;</span></span>
+
+                  <span class="headline-row headline-row--bottom">
+                    <span class="headline-itzfizz-word">
+                      <span class="letter-cell letter-cell--itzfizz"><span class="letter-ghost" aria-hidden="true">I</span><span class="value-letter letter-cell--itzfizz-letter" data-char="I" data-index="8">I</span></span>
+                      <span class="letter-cell letter-cell--itzfizz"><span class="letter-ghost" aria-hidden="true">T</span><span class="value-letter letter-cell--itzfizz-letter" data-char="T" data-index="9">T</span></span>
+                      <span class="letter-cell letter-cell--itzfizz"><span class="letter-ghost" aria-hidden="true">Z</span><span class="value-letter letter-cell--itzfizz-letter" data-char="Z" data-index="10">Z</span></span>
+                      <span class="letter-cell letter-cell--itzfizz"><span class="letter-ghost" aria-hidden="true">F</span><span class="value-letter letter-cell--itzfizz-letter" data-char="F" data-index="11">F</span></span>
+                      <span class="letter-cell letter-cell--itzfizz"><span class="letter-ghost" aria-hidden="true">I</span><span class="value-letter letter-cell--itzfizz-letter" data-char="I" data-index="12">I</span></span>
+                      <span class="letter-cell letter-cell--itzfizz"><span class="letter-ghost" aria-hidden="true">Z</span><span class="value-letter letter-cell--itzfizz-letter" data-char="Z" data-index="13">Z</span></span>
+                      <span class="letter-cell letter-cell--itzfizz"><span class="letter-ghost" aria-hidden="true">Z</span><span class="value-letter letter-cell--itzfizz-letter" data-char="Z" data-index="14">Z</span></span>
+                    </span>
+
+                    <span class="headline-side-caption" aria-hidden="true">
+                      <span class="side-caption-rule"></span>
+                      <span class="side-caption-text">
+                        <span>A HIGHER</span>
+                        <span>STANDARD</span>
+                        <span>IN MOTION</span>
+                      </span>
+                    </span>
+                  </span>
                 </h1>
               </div>
 
-              <!-- Center Architectural Zone: Aerodynamic Wind-Tunnel Runway -->
+              <!-- Center Zone: Mountain Highway Track, Green & Amber Trail, SEC.01-04 & Orange McLaren 720S -->
               <div class="runway-shell">
                 <div class="runway-ruler" aria-hidden="true">
-                  <div class="ruler-tick" style="left: 0%"><span class="tick-mark"></span><span class="tick-label">000M // START GATE</span></div>
-                  <div class="ruler-tick" style="left: 20%"><span class="tick-mark"></span><span class="tick-label">050M // SEC.01</span></div>
-                  <div class="ruler-tick" style="left: 40%"><span class="tick-mark"></span><span class="tick-label">100M // SEC.02</span></div>
-                  <div class="ruler-tick" style="left: 60%"><span class="tick-mark"></span><span class="tick-label">150M // SEC.03</span></div>
-                  <div class="ruler-tick" style="left: 80%"><span class="tick-mark"></span><span class="tick-label">200M // SEC.04</span></div>
-                  <div class="ruler-tick" style="left: 100%"><span class="tick-mark"></span><span class="tick-label">250M // APEX LOCK</span></div>
+                  <div class="ruler-tick" style="left: 0%"><span class="tick-mark"></span><span class="tick-label">000M</span></div>
+                  <div class="ruler-tick" style="left: 25%"><span class="tick-mark"></span><span class="tick-label">060M</span></div>
+                  <div class="ruler-tick" style="left: 50%"><span class="tick-mark"></span><span class="tick-label">120M</span></div>
+                  <div class="ruler-tick" style="left: 75%"><span class="tick-mark"></span><span class="tick-label">180M</span></div>
+                  <div class="ruler-tick" style="left: 100%"><span class="tick-mark"></span><span class="tick-label">240M</span></div>
                 </div>
 
                 <div
                   class="road"
                   id="road"
                   role="img"
-                  aria-label="Aerodynamic wind-tunnel test track with McLaren 720S sports car and kinetic slipstream"
+                  aria-label="Mountain canyon test track with photorealistic orange McLaren 720S and green-amber slipstream illumination"
                 >
                   <div class="road-markings" aria-hidden="true">
                     <div class="road-line road-line--top"></div>
@@ -132,14 +176,34 @@
                   </div>
 
                   <div class="sector-gates-layer" aria-hidden="true">
-                    <div class="sector-gate" style="left: 20%; --gate-color: #def54f"><span class="gate-tag">SEC.01</span><span class="gate-beam"></span><span class="gate-dist">060M</span></div>
-                    <div class="sector-gate" style="left: 39%; --gate-color: #6ac9ff"><span class="gate-tag">SEC.02</span><span class="gate-beam"></span><span class="gate-dist">120M</span></div>
-                    <div class="sector-gate" style="left: 58%; --gate-color: #e2e8f0"><span class="gate-tag">SEC.03</span><span class="gate-beam"></span><span class="gate-dist">180M</span></div>
-                    <div class="sector-gate" style="left: 77%; --gate-color: #fa7328"><span class="gate-tag">SEC.04</span><span class="gate-beam"></span><span class="gate-dist">240M</span></div>
+                    <div class="sector-gate sector-gate--active" style="left: 9%; --gate-color: #45db7d">
+                      <div class="gate-header"><span class="gate-tag">SEC.01</span><span class="gate-dist">0 - 60M</span></div>
+                      <span class="gate-beam"><span class="gate-node"></span></span>
+                    </div>
+                    <div class="sector-gate" style="left: 65.5%; --gate-color: #45db7d">
+                      <div class="gate-header"><span class="gate-tag">SEC.02</span><span class="gate-dist">60M - 120M</span></div>
+                      <span class="gate-beam"><span class="gate-node"></span></span>
+                    </div>
+                    <div class="sector-gate" style="left: 77.5%; --gate-color: #f59e0b">
+                      <div class="gate-header"><span class="gate-tag">SEC.03</span><span class="gate-dist">120M - 180M</span></div>
+                      <span class="gate-beam"><span class="gate-node"></span></span>
+                    </div>
+                    <div class="sector-gate" style="left: 89%; --gate-color: #45db7d">
+                      <div class="gate-header"><span class="gate-tag">SEC.04</span><span class="gate-dist">180M - 240M</span></div>
+                      <span class="gate-beam"><span class="gate-node"></span></span>
+                    </div>
                   </div>
 
                   <div class="trail" id="trail" aria-hidden="true">
                     <div class="trail-vortex trail-vortex--top"></div>
+                    <div class="trail-vortex trail-vortex--upper-mid"></div>
+                    <div class="trail-core-beam"></div>
+                    <div class="trail-chevrons">
+                      <span>›</span>
+                      <span>›</span>
+                      <span>›</span>
+                      <span>›</span>
+                    </div>
                     <div class="trail-vortex trail-vortex--bottom"></div>
                     <div class="trail-glow"></div>
                     <div class="trail-laser"></div>
@@ -164,78 +228,145 @@
                 </div>
               </div>
 
-              <!-- Lower Architectural Zone: 4-Module Telemetry Bento Bay -->
-              <div class="telemetry-bento-bay" role="region" aria-label="Impact Telemetry Metrics">
-                <div class="cards-lane cards-lane--top">
-                  <article class="text-box" id="box1" style="--card-accent: #def54f; --card-glow: rgba(222, 245, 79, 0.16);" aria-label="Metric SEC.01: 58% Increase in pick up point use">
-                    <div class="card-telemetry-head">
-                      <span class="card-sector-badge"><span class="sector-dot"></span>SEC.01 // 060M</span>
-                      <span class="card-code">PKP-ADOPT // +58</span>
-                    </div>
-                    <div class="card-stat-row">
-                      <span class="num-box">58%</span>
-                      <span class="stat-unit-tag">BENCHMARK IMPACT</span>
-                    </div>
-                    <p class="box-desc">Increase in pick up point use</p>
-                    <p class="box-subdetail">First-wave network density &amp; automated locker routing efficiency</p>
-                    <div class="card-progress-track" aria-hidden="true"><div class="card-progress-fill" style="width: 58%"></div></div>
-                  </article>
+              <!-- Lower Zone: Four Transparent Dark Metric Panels & Corner Branding -->
+              <div class="lower-telemetry-zone">
+                <div class="telemetry-bento-bay" role="region" aria-label="Impact Telemetry Metrics">
+                  <div class="cards-lane cards-lane--top">
+                    <article class="text-box" id="box1" style="--card-accent: #45db7d; --card-num-color: #5ef28e; --card-bar-color: #45db7d; --card-glow: rgba(69, 219, 125, 0.18);" aria-label="Metric SEC.01: 58% Increase in pick up point use">
+                      <div class="card-telemetry-head" aria-hidden="true">
+                        <span class="card-sector-badge"><span class="sector-dot"></span>SEC.01 // 0 - 60M</span>
+                        <span class="card-code">PKP-ADOPT // +58</span>
+                      </div>
+                      <div class="card-stat-row">
+                        <span class="card-icon-wrap" aria-hidden="true">
+                          <svg class="metric-icon metric-icon--green" viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <circle cx="16" cy="7" r="3.2" /><circle cx="8" cy="23" r="3.2" /><circle cx="24" cy="23" r="3.2" /><circle cx="16" cy="17" r="2.2" />
+                            <path d="M16 10.2v4.6M13.8 18.4l-3.4 2.8M18.2 18.4l3.4 2.8M11.2 23h9.6" />
+                          </svg>
+                        </span>
+                        <span class="num-box">58%</span>
+                        <span class="stat-unit-tag">BENCHMARK IMPACT</span>
+                      </div>
+                      <div class="card-body-copy">
+                        <p class="box-desc">Increase in pick up point use</p>
+                        <p class="box-subdetail">First-wave network density &amp; automated locker routing efficiency</p>
+                      </div>
+                      <div class="card-footer-progress" aria-hidden="true">
+                        <div class="card-progress-track"><div class="card-progress-fill" style="width: 58%"></div></div>
+                        <span class="card-index-num">01</span>
+                      </div>
+                    </article>
 
-                  <article class="text-box" id="box2" style="--card-accent: #6ac9ff; --card-glow: rgba(106, 201, 255, 0.16);" aria-label="Metric SEC.02: 23% Decreased in customer phone calls">
-                    <div class="card-telemetry-head">
-                      <span class="card-sector-badge"><span class="sector-dot"></span>SEC.02 // 120M</span>
-                      <span class="card-code">COM-DEFLECT // -23</span>
-                    </div>
-                    <div class="card-stat-row">
-                      <span class="num-box">23%</span>
-                      <span class="stat-unit-tag">BENCHMARK IMPACT</span>
-                    </div>
-                    <p class="box-desc">Decreased in customer phone calls</p>
-                    <p class="box-subdetail">Proactive real-time telemetry notifications reducing manual inquiries</p>
-                    <div class="card-progress-track" aria-hidden="true"><div class="card-progress-fill" style="width: 23%"></div></div>
-                  </article>
+                    <article class="text-box" id="box2" style="--card-accent: #ffffff; --card-num-color: #ffffff; --card-bar-color: #e2e8f0; --card-glow: rgba(255, 255, 255, 0.12);" aria-label="Metric SEC.02: 23% Decreased in customer phone calls">
+                      <div class="card-telemetry-head" aria-hidden="true">
+                        <span class="card-sector-badge"><span class="sector-dot"></span>SEC.02 // 60M - 120M</span>
+                        <span class="card-code">COM-DEFLECT // -23</span>
+                      </div>
+                      <div class="card-stat-row">
+                        <span class="card-icon-wrap" aria-hidden="true">
+                          <svg class="metric-icon" viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M9.5 6.5h4l2 5-2.5 2a14 14 0 0 0 5.5 5.5l2-2.5 5 2v4a2 2 0 0 1-2 2C14.6 24.5 7.5 17.4 7.5 8.5a2 2 0 0 1 2-2z" />
+                            <path d="M19 8a5 5 0 0 1 5 5M19 4a9 9 0 0 1 9 9" stroke-linecap="round" />
+                          </svg>
+                        </span>
+                        <span class="num-box">23%</span>
+                        <span class="stat-unit-tag">BENCHMARK IMPACT</span>
+                      </div>
+                      <div class="card-body-copy">
+                        <p class="box-desc">Decreased in customer phone calls</p>
+                        <p class="box-subdetail">Proactive real-time telemetry notifications reducing manual inquiries</p>
+                      </div>
+                      <div class="card-footer-progress" aria-hidden="true">
+                        <div class="card-progress-track"><div class="card-progress-fill" style="width: 23%"></div></div>
+                        <span class="card-index-num">02</span>
+                      </div>
+                    </article>
+                  </div>
+
+                  <div class="cards-lane cards-lane--bottom">
+                    <article class="text-box" id="box3" style="--card-accent: #f59e0b; --card-num-color: #ffffff; --card-bar-color: #e2e8f0; --card-glow: rgba(226, 232, 240, 0.12);" aria-label="Metric SEC.03: 27% Increase in pick up point use">
+                      <div class="card-telemetry-head" aria-hidden="true">
+                        <span class="card-sector-badge"><span class="sector-dot"></span>SEC.03 // 120M - 180M</span>
+                        <span class="card-code">PKP-VELOCITY // +27</span>
+                      </div>
+                      <div class="card-stat-row">
+                        <span class="card-icon-wrap" aria-hidden="true">
+                          <svg class="metric-icon" viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <rect x="6" y="21" width="4" height="5" rx="0.8" /><rect x="13" y="15" width="4" height="11" rx="0.8" /><rect x="20" y="8" width="4" height="18" rx="0.8" />
+                            <path d="M4 26h24" stroke-linecap="round" />
+                          </svg>
+                        </span>
+                        <span class="num-box">27%</span>
+                        <span class="stat-unit-tag">BENCHMARK IMPACT</span>
+                      </div>
+                      <div class="card-body-copy">
+                        <p class="box-desc">Increase in pick up point use</p>
+                        <p class="box-subdetail">Higher fulfillment speed with optimized route planning</p>
+                      </div>
+                      <div class="card-footer-progress" aria-hidden="true">
+                        <div class="card-progress-track"><div class="card-progress-fill" style="width: 27%"></div></div>
+                        <span class="card-index-num">03</span>
+                      </div>
+                    </article>
+
+                    <article class="text-box" id="box4" style="--card-accent: #45db7d; --card-num-color: #ffffff; --card-bar-color: #f59e0b; --card-glow: rgba(245, 158, 11, 0.16);" aria-label="Metric SEC.04: 40% Improved operational efficiency">
+                      <div class="card-telemetry-head" aria-hidden="true">
+                        <span class="card-sector-badge"><span class="sector-dot"></span>SEC.04 // 180M - 240M</span>
+                        <span class="card-code">OPS-EFFICIENCY // +40</span>
+                      </div>
+                      <div class="card-stat-row">
+                        <span class="card-icon-wrap" aria-hidden="true">
+                          <svg class="metric-icon" viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M17.5 4L8 17h7.5l-1 11L24 15h-7.5l1-11z" stroke-linejoin="round" />
+                          </svg>
+                        </span>
+                        <span class="num-box">40%</span>
+                        <span class="stat-unit-tag">BENCHMARK IMPACT</span>
+                      </div>
+                      <div class="card-body-copy">
+                        <p class="box-desc">Improved operational efficiency</p>
+                        <p class="box-subdetail">Smarter allocation and dynamic load balancing</p>
+                      </div>
+                      <div class="card-footer-progress" aria-hidden="true">
+                        <div class="card-progress-track"><div class="card-progress-fill" style="width: 40%"></div></div>
+                        <span class="card-index-num">04</span>
+                      </div>
+                    </article>
+                  </div>
                 </div>
 
-                <div class="cards-lane cards-lane--bottom">
-                  <article class="text-box" id="box3" style="--card-accent: #e2e8f0; --card-glow: rgba(226, 232, 240, 0.14);" aria-label="Metric SEC.03: 27% Increase in pick up point use">
-                    <div class="card-telemetry-head">
-                      <span class="card-sector-badge"><span class="sector-dot"></span>SEC.03 // 180M</span>
-                      <span class="card-code">PKP-VELOCITY // +27</span>
-                    </div>
-                    <div class="card-stat-row">
-                      <span class="num-box">27%</span>
-                      <span class="stat-unit-tag">BENCHMARK IMPACT</span>
-                    </div>
-                    <p class="box-desc">Increase in pick up point use</p>
-                    <p class="box-subdetail">Sustained repeat hub utilization across high-throughput urban corridors</p>
-                    <div class="card-progress-track" aria-hidden="true"><div class="card-progress-fill" style="width: 27%"></div></div>
-                  </article>
+                <!-- Bottom-Left Scroll Indicator & Bottom-Right Mountain Performance Branding -->
+                <div class="stage-bottom-bar" aria-hidden="true">
+                  <div class="scroll-explore-indicator">
+                    <span class="explore-circle">
+                      <span class="explore-dot"></span>
+                    </span>
+                    <span class="explore-line"></span>
+                    <span class="explore-text">SCROLL TO EXPLORE</span>
+                  </div>
 
-                  <article class="text-box" id="box4" style="--card-accent: #fa7328; --card-glow: rgba(250, 115, 40, 0.18);" aria-label="Metric SEC.04: 40% Decreased in customer phone calls">
-                    <div class="card-telemetry-head">
-                      <span class="card-sector-badge"><span class="sector-dot"></span>SEC.04 // 240M</span>
-                      <span class="card-code">COM-RESOLVE // -40</span>
+                  <div class="performance-routes-brand">
+                    <svg class="mountain-emblem" viewBox="0 0 80 32" width="68" height="26" fill="none">
+                      <path d="M4 28L26 8l12 11 14-14 24 23" stroke="rgba(255,255,255,0.65)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M26 8l-5 9 7-2 4 4M52 5l-6 10 8-3 5 5" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <div class="routes-brand-text">
+                      <span>PERFORMANCE</span>
+                      <span>BEYOND ROUTES</span>
                     </div>
-                    <div class="card-stat-row">
-                      <span class="num-box">40%</span>
-                      <span class="stat-unit-tag">BENCHMARK IMPACT</span>
-                    </div>
-                    <p class="box-desc">Decreased in customer phone calls</p>
-                    <p class="box-subdetail">End-to-end autonomous handoff verification at destination terminals</p>
-                    <div class="card-progress-track" aria-hidden="true"><div class="card-progress-fill" style="width: 40%"></div></div>
-                  </article>
+                  </div>
                 </div>
               </div>
             </div>
           </section>
 
-          <section class="summary-section" aria-label="Telemetry Session Summary">
+          <section class="summary-section" id="summarySection" aria-label="Telemetry Session Summary">
             <div class="summary-card">
-              <div class="summary-eyebrow">RUNWAY TELEMETRY COMPLETE // 250.0M APEX</div>
-              <h2>Aerodynamic Velocity &amp; Impact Verified</h2>
+              <div class="summary-eyebrow">TEST TRACK 01 COMPLETE // 240.0M CANYON APEX</div>
+              <h2>Performance Beyond Routes Verified</h2>
               <p>
                 Full-range horizontal displacement synchronized via unified GSAP ScrollTrigger scrub,
-                front-axle optical headline ignition, and four-sector impact telemetry verification.
+                two-line optical headline ignition, and four-sector canyon telemetry verification.
               </p>
               <div class="summary-specs-grid">
                 <div class="spec-cell">
@@ -267,7 +398,7 @@
       </div>
     </div>
 
-    <!-- Self-contained React 18 + GSAP 3.12 + ScrollTrigger + Compiled Application Bundle -->
+    <!-- Self-Contained Local Runtimes: React 18 + GSAP 3.12 + ScrollTrigger 3.12 -->
     <script src="react.min.js"></script>
     <script src="gsap.min.js"></script>
     <script src="ScrollTrigger.min.js"></script>
